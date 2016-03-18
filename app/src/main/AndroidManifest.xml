@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        >
         <meta-data
             android:name="com.parse.APPLICATION_ID"
             android:value="q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz" />
@@ -24,11 +24,7 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginForm"
@@ -39,9 +35,15 @@
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name=".SearchForm"
-            android:label="@string/title_activity_search_form" >
+            android:name=".NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
