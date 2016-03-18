@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" tools:context=".MainActivity"
+    android:background="#F44336"
+    android:id="@+id/mainLayout"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainActivity">
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:id="@+id/logoHouse"
+            android:layout_above="@+id/HouseMasterLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/houseblack"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HouseMaster"
+            android:textSize="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <ImageButton
+            android:layout_width="180dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/registerButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/register" />
+
+        <ImageButton
+            android:layout_width="180dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/signInButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/signingin" />
+
+
+    </LinearLayout>
+</RelativeLayout>

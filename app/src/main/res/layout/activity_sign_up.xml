@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F44336">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="30dp"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"
+
+            android:id="@+id/signInLogo" />
+
+        <EditText
+            android:paddingTop="100dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userNameText"
+            android:layout_gravity="center_horizontal"
+            android:hint="UserName"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#ffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/emailText"
+            android:layout_gravity="center_horizontal"
+            android:hint="Email"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#ffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/passwordText"
+            android:inputType="textPassword"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"
+            android:hint="password (min. 6 character)"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#ffffff" />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="SignUp"
+            android:id="@+id/buttonSignUp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="SignUp with facebook"
+            android:textColor="#FFF"
+            android:background="#3b5998"
+            android:id="@+id/buttonSignUpFacebook" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="SignUp with Google+"
+            android:background="#d34836"
+            android:textColor="#FFF"
+            android:id="@+id/buttonSignUpGoogle" />
+
+
+    </LinearLayout>
+</RelativeLayout>

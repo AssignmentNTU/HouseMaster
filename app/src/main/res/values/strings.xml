@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">HouseMaster</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_sign_in">SignIn</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_search_form">SearchForm</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <!--Navigation Drawer List-->
+    <string-array name="navigationDrawer_items">
+        <item>Featured</item>
+        <item>New Offers</item>
+        <item>Find Place</item>
+        <item>Offer Place</item>
+        <item>Profile</item>
+        <item>Setting</item>
+        <item>Help</item>
+        <item>History</item>
+    </string-array>
+
+
+
+</resources>
