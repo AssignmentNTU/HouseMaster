@@ -42,7 +42,7 @@ public class AccountManager {
                             //it means username is exist
                             Toast.makeText(context,"username or email does exist",Toast.LENGTH_LONG).show();
                             pass = false;
-                            Log.e("test","test");
+                            Log.e("test","test1");
                         }
                     }
                 }
