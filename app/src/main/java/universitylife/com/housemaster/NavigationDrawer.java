@@ -1,6 +1,9 @@
 package universitylife.com.housemaster;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -66,6 +69,9 @@ public class NavigationDrawer extends Activity {
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
     }
 
+
+
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -102,7 +108,8 @@ public class NavigationDrawer extends Activity {
             switch (position)
             {
                 case 0:
-                    //if featured is click
+                    //this is featured option when it is clicked then the fragment View is changing
+                    changeToFeaturedFragment();
                     break;
 
 
@@ -118,7 +125,24 @@ public class NavigationDrawer extends Activity {
             }
 
         }
+
+
+
     }
+
+    //for featured view
+    public void changeToFeaturedFragment(){
+        Fragment fragment = new Featured();
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+
+
+
 
 }
 
