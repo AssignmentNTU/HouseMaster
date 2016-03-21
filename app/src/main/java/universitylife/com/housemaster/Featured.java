@@ -1,6 +1,9 @@
 package universitylife.com.housemaster;
 
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,14 +14,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class Featured extends Fragment {
 
     //decalration of new attribute
-    private Button buttonRefreshed;
+    //private Button buttonRefreshed;
+    private PlaceReviewCollect prc;
 
     public Featured() {
-        // Required empty public constructor
+
+    }
+
+
+    public Featured(PlaceReviewCollect prc) {
+            this.prc = prc;
     }
 
 
@@ -28,24 +43,23 @@ public class Featured extends Fragment {
                              Bundle savedInstanceState) {
         //in featured you can view the current offer that the system currently collecting
         View featureView = inflater.inflate(R.layout.fragment_featured, container, false);
-        RecyclerView recyclerView = (RecyclerView) featureView.findViewById(R.id.featureView);
-        buttonRefreshed = (Button) featureView.findViewById(R.id.refresehButton);
-
-
-        //mock up the PlaceReview object first
-        PlaceReview place[] = new PlaceReview[]{
-                new PlaceReview("Jurong","best for young people",R.drawable.hdb1),
-                new PlaceReview("NTU hall","best for student",R.drawable.hdb2)
-        };
-
+        final RecyclerView recyclerView = (RecyclerView) featureView.findViewById(R.id.featureView);
+        //buttonRefreshed = (Button) featureView.findViewById(R.id.refresehButton);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CardViewAdapter adapter = new CardViewAdapter(place);
+        Log.e("resulting array: ",prc.getPlaceReviewList().toString());
+        CardViewAdapter adapter = new CardViewAdapter(prc.getPlaceReviewList());
         recyclerView.setAdapter(adapter);
-
-        //if the refreshed button is clicked
 
         return featureView;
     }
+
+
+
+
+
+
+
+
 
 
 

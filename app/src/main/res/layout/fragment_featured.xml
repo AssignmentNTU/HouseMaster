@@ -11,11 +11,5 @@
         android:layout_height="match_parent"
         />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="58dp"
-        android:text="refresh"
-        android:id="@+id/refresehButton"
-        android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>
