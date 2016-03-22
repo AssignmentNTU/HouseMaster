@@ -32,6 +32,7 @@
         <item>History</item>
     </string-array>
     <string name="title_activity_navigation_drawer">Home</string>
+    <string name="title_activity_map">Map</string>
 
 
 
