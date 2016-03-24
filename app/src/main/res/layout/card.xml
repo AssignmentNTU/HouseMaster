@@ -1,7 +1,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="380dp"
+    android:layout_height="420dp"
     android:layout_margin="8dp">
 
     <RelativeLayout
@@ -14,7 +14,7 @@
             android:layout_height="250dp"
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/hdb1" />
+            />
 
         <TextView
             android:id="@+id/hdbName"
@@ -29,15 +29,42 @@
             android:textSize="22dp" />
 
         <TextView
-            android:id="@+id/hdbDesc"
+            android:id="@+id/listAmenities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/hdbName"
             android:maxLines="3"
             android:padding="8dp"
-            android:text="best HDB "
+            android:text="List Amenities:"
             android:textColor="#666"
             android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/locationHDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listAmenities"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:text="Address: "
+            android:textColor="#666"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/priceHDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/locationHDB"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:text="Price: "
+            android:textColor="#666"
+            android:textSize="14dp" />
+
+
+
+
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

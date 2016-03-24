@@ -8,17 +8,17 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class NavigationDrawer extends Activity {
 
@@ -27,6 +27,7 @@ public class NavigationDrawer extends Activity {
     private DrawerLayout drawerLayout;
     private ListView drawerListView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private PlaceReviewCollect prc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,20 @@ public class NavigationDrawer extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(244,67,54)));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+
+        //load the list of hdb first
+        prc = new PlaceReviewCollect(this);
+        prc.execute();
+        final ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
+
+        //need to crehate thread so it will wait for the previous session to be finished
+        exec.schedule(new Runnable(){
+            @Override
+            public void run(){
+                changeToFeaturedFragment();
+            }
+        }, 2, TimeUnit.SECONDS);
+
     }
 
 
@@ -105,22 +120,22 @@ public class NavigationDrawer extends Activity {
 
         private void displayView(int position)
         {
+            position = getIntent().getIntExtra("position", 0);
             switch (position)
             {
                 case 0:
                     //this is featured option when it is clicked then the fragment View is changing
                     changeToFeaturedFragment();
                     break;
-
-
                 case 1:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     break;
 
                 case 2:
                     //Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
-
+                    break;
                 default:
+                    changeToFeaturedFragment();
                     break;
             }
 
@@ -132,7 +147,7 @@ public class NavigationDrawer extends Activity {
 
     //for featured view
     public void changeToFeaturedFragment(){
-        Fragment fragment = new Featured();
+        Fragment fragment = new Featured(prc);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);
