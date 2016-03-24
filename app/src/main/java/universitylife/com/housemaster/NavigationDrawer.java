@@ -75,12 +75,13 @@ public class NavigationDrawer extends Activity {
         final ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
         //need to crehate thread so it will wait for the previous session to be finished
+
         exec.schedule(new Runnable(){
             @Override
             public void run(){
                 changeToFeaturedFragment();
             }
-        }, 2, TimeUnit.SECONDS);
+        }, 8, TimeUnit.SECONDS);
 
     }
 
@@ -120,7 +121,6 @@ public class NavigationDrawer extends Activity {
 
         private void displayView(int position)
         {
-            position = getIntent().getIntExtra("position", 0);
             switch (position)
             {
                 case 0:
@@ -129,13 +129,14 @@ public class NavigationDrawer extends Activity {
                     break;
                 case 1:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
+                    changeToSearchForm();
                     break;
 
                 case 2:
                     //Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
                     break;
                 default:
-                    changeToFeaturedFragment();
+                  //  changeToFeaturedFragment();
                     break;
             }
 
@@ -155,6 +156,16 @@ public class NavigationDrawer extends Activity {
         fragmentTransaction.commit();
     }
 
+
+    //for search View
+    public void changeToSearchForm(){
+        Fragment fragment = new SearchForm(this,prc);
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
 
 

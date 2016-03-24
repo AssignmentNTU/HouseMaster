@@ -20,6 +20,10 @@
 
     <string name="action_example">Example action</string>
 
+
+
+    <string name="google_app_id">936158913364</string>
+
     <!--Navigation Drawer List-->
     <string-array name="navigationDrawer_items">
         <item>Featured</item>
@@ -35,4 +39,14 @@
     <string name="title_activity_map">Map</string>
 
 
+<<<<<<< HEAD
+=======
+    <!--Other string resources also defined in this file… -->
+    <string name="amenity1">Pool</string>
+    <string name="amenity2">Gym</string>
+    <string name="amenity3">Shooping Mall</string>
+    <string name="amenity4">Vacation</string>
+
+
+>>>>>>> 87f9b9e3e4984681c77ecf8863dd72392d8ea230
 </resources>

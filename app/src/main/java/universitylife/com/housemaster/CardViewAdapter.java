@@ -80,5 +80,6 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             textLocation = (TextView) itemLayoutView.findViewById(R.id.locationHDB);
             textPrice = (TextView) itemLayoutView.findViewById(R.id.priceHDB);
         }
+
     }
 }
