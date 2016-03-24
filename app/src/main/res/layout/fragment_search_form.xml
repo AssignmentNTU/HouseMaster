@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="universitylife.com.housemaster.SearchForm">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GPS"
+                android:textColor="#FFF"
+                android:background="#d34836"
+                android:id="@+id/GPSButton"
+                android:layout_margin="10dp"
+                android:layout_gravity="right" />
+        </LinearLayout>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:id="@+id/fragmentMap"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amenities"
+            android:id="@+id/textView"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
