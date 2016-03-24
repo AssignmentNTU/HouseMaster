@@ -58,7 +58,7 @@ public class LoginForm extends Activity {
     }
 
     private void goToSearchForm(){
-        Intent intent = new Intent(this,SearchForm.class);
+        Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
 
