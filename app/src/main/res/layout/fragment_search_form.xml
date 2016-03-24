@@ -9,45 +9,166 @@
 
         <LinearLayout
             android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-
+            android:layout_marginTop="10dp">
             <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-
-                />
-
+                android:id="@+id/search_location"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:hint="Location/Address"
+                android:inputType="text" />
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/search_GPS_button"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="GPS"
-                android:textColor="#FFF"
-                android:background="#d34836"
-                android:id="@+id/GPSButton"
-                android:layout_margin="10dp"
-                android:layout_gravity="right" />
+                android:gravity="center_vertical"/>
         </LinearLayout>
+
+
         <fragment
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:name="com.google.android.gms.maps.MapFragment"
             android:id="@+id/fragmentMap"
-            android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            />
+            android:layout_marginRight="10dp"/>
 
 
         <TextView
+            android:id="@+id/amenities"
+            android:text="Amenities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Amenities"
-            android:id="@+id/textView"
+            android:textSize="16dp"
+            android:layout_marginTop="15dp"/>
 
-            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/amenities1"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:hint="Name"
+                android:inputType="text"/>
+            <Spinner
+                android:id="@+id/type1"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/amenities2"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:hint="Name"
+                android:inputType="text"/>
+            <Spinner
+                android:id="@+id/type2"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/amenities3"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:hint="Name"
+                android:inputType="text"/>
+            <Spinner
+                android:id="@+id/type3"
+                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/price_range"
+            android:text="Price Range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:id="@+id/price_low"
+                android:text="S$"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/lowest_price"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Lowest"
+                android:inputType="number"/>
+            <TextView
+                android:id="@+id/price_high"
+                android:text="to S$"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="20dp"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/highest_price"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Highest"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <CheckBox
+                android:id="@+id/find_rent"
+                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:text="Rent"/>
+            <CheckBox
+                android:id="@+id/find_sale"
+                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:text="Sell"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sell_search_button"
+            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:text="Search"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 
