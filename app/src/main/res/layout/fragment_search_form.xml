@@ -29,17 +29,6 @@
         </LinearLayout>
 
 
-        <fragment
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:name="com.google.android.gms.maps.MapFragment"
-            android:id="@+id/fragmentMap"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-
-
         <TextView
             android:id="@+id/amenities"
             android:text="Amenities"
@@ -131,6 +120,8 @@
                 android:layout_weight="1"
                 android:hint="Lowest"
                 android:inputType="number"/>
+
+
             <TextView
                 android:id="@+id/price_high"
                 android:text="to S$"
@@ -171,6 +162,7 @@
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
+
 
 
 </FrameLayout>

@@ -1,11 +1,12 @@
 package universitylife.com.housemaster;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
 import java.util.ArrayList;
 
-/**
- * Created by LENOVO on 19/03/2016.
- */
-public class PlaceReview {
+@ParseClassName("PlaceReview")
+public class PlaceReview extends ParseObject{
     private String hdbName;
     private String description;
     private ArrayList<String> amenities;
@@ -17,6 +18,10 @@ public class PlaceReview {
     private String email;
     private int imageUrl;
 
+
+    public PlaceReview(){
+        //for parse.com policy
+    }
 
     public PlaceReview(String hdbName,String hdbDescription,int imageUrl){
         this.hdbName = hdbName;
@@ -32,50 +37,55 @@ public class PlaceReview {
         this.location = location;
         this.price = price;
         this.imageUrl = imageUrl;
+        put("hdbName",hdbName);
+        put("amenities",listAmenities);
+        put("location",location);
+        put("price",price);
+        put("imageUrl",imageUrl);
     }
 
 
     //just for the getter
     public String getHdbName(){
-        return hdbName;
+        return (String)get("hdbName");
     }
 
 
     public String getHdbDescription(){
-        return description;
+        return (String)get("description");
     }
 
 
     public int getImageUrl(){
-        return imageUrl;
+        return (Integer)get("imageUrl");
     }
 
     public ArrayList<String> getListAmenities(){
-        return amenities;
+        return (ArrayList<String>) get("amenities");
     }
 
     public String getLocation(){
-        return location;
+        return (String)get("location");
     }
 
     public String getPrice(){
-        return price;
+        return  (String)get("price");
     }
 
     public boolean isRent(){
-        return rent;
+        return (boolean)get("isRent");
     }
 
     public boolean isSold(){
-        return sale;
+        return (boolean)get("isSold");
     }
 
     public String getPhoneNumber(){
-        return phoneNumber;
+        return (String)get("phoneNumber");
     }
 
     public String getEmail(){
-        return email;
+        return (String)get("email");
     }
 
 }

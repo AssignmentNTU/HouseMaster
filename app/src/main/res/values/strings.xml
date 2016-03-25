@@ -27,8 +27,9 @@
     <!--Navigation Drawer List-->
     <string-array name="navigationDrawer_items">
         <item>Featured</item>
-        <item>New Offers</item>
-        <item>Find Place</item>
+        <item>Search Featured</item>
+        <item>Sell/Rent</item>
+        <item>Search Sell/Rent</item>
         <item>Offer Place</item>
         <item>Profile</item>
         <item>Setting</item>

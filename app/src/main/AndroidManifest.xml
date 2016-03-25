@@ -26,7 +26,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/houseblack"
         android:label="@string/app_name" >
         <meta-data
             android:name="com.parse.APPLICATION_ID"
@@ -53,10 +53,11 @@
         </activity>
         <activity
             android:name=".NavigationDrawer"
-            android:label="@string/title_activity_navigation_drawer" >
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

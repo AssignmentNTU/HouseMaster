@@ -20,6 +20,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.places.PlaceTypes;
 import com.google.android.gms.maps.GoogleMap;
+import com.parse.Parse;
+import com.parse.ParseObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -178,12 +180,9 @@ import java.util.concurrent.TimeUnit;
             sb.append("&types="+typeAmenity);
             sb.append("&sensor=true");
             sb.append("&key="+keyAPI);
-            Log.e("Latitude: ",mLatitude+"");
-            Log.e("Longitude: ",mLongitude+"");
             // Creating a new non-ui thread task to download json data
             //in here i will pass my PlaceReviewList so it just will be added
             PlacesTask placesTask = new PlacesTask(hdbName,location,priceHDB,imageIndex);
-            Log.e("SB: ",sb.toString());
             // Invokes the "doInBackground()" method of the class PlaceTask
             placesTask.execute(sb.toString());
 
@@ -292,7 +291,6 @@ import java.util.concurrent.TimeUnit;
         protected String doInBackground(String... url) {
             try{
                 data = downloadUrl(url[0]);
-                Log.e("currentData: ",data);
             }catch(Exception e){
                 Log.d("Background Task",e.toString());
             }
@@ -306,7 +304,6 @@ import java.util.concurrent.TimeUnit;
 
             // Start parsing the Google places in JSON format
             // Invokes the "doInBackground()" method of the class ParseTask
-            Log.e("result",result);
             parserTask.execute(result);
         }
 
@@ -337,7 +334,6 @@ import java.util.concurrent.TimeUnit;
             try{
                 jObject = new JSONObject(jsonObject[0]);
                 places = placeJsonParser.parse(jObject);
-                Log.e("Places",places.toString());
             }catch(Exception e){
                 Log.e("Failed in parse Task","true");
             }
@@ -354,13 +350,13 @@ import java.util.concurrent.TimeUnit;
                 HashMap<String,String> hm = hashMaps.get(i);
                 String hmPlace = hm.get("place_name");
                 listAmenities.add(hmPlace);
-                Log.e("Place Name : ",hmPlace);
                 if(i >= 5){
                     //just retrieve 10 data at most
                     break;
                 }
             }
             //when all data is retrieved we just need to create PlaceReview Object and pass it to the placeReviewList
+            ParseObject.registerSubclass(PlaceReview.class);
             PlaceReview placeReview = new PlaceReview(hdbName,listAmenities,location,priceRange,indexImage);
             placeReviewsList.add(placeReview);
         }

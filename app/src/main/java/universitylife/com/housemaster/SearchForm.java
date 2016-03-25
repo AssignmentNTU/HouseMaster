@@ -6,6 +6,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,11 @@ public class SearchForm extends Fragment {
         View currentView = inflater.inflate(R.layout.fragment_search_form, container, false);
         addressText = (EditText)  currentView.findViewById(R.id.search_location);
         buttonGPS = (Button) currentView.findViewById(R.id.search_GPS_button);
+        // create ContextThemeWrapper from the original Activity Context with the custom theme
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.AppTheme);
+        // clone the inflater using the ContextThemeWrapper
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+
 
         //when buttonGps is clicked
         buttonGPS.setOnClickListener(new View.OnClickListener() {

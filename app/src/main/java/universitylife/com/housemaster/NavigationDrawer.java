@@ -34,7 +34,7 @@ public class NavigationDrawer extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         //Image
-        Integer[] imageId = {R.drawable.star,R.drawable.offer,R.drawable.place,R.drawable.offering,R.drawable.profile,R.drawable.setting,R.drawable.help,R.drawable.history};
+        Integer[] imageId = {R.drawable.star,R.drawable.place,R.drawable.offer,R.drawable.place,R.drawable.offering,R.drawable.profile,R.drawable.setting,R.drawable.help,R.drawable.history};
 
         // get list items from strings.xml
         drawerListViewItems = getResources().getStringArray(R.array.navigationDrawer_items);
@@ -129,11 +129,16 @@ public class NavigationDrawer extends Activity {
                     break;
                 case 1:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
-                    changeToSearchForm();
+                    changeToSearchFormNews();
                     break;
 
                 case 2:
+                    //for SellAndRent
                     //Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
+                    break;
+                case 3:
+                    //for SellAndRentSearch
+                    changeToSearchFormSellRent();
                     break;
                 default:
                   //  changeToFeaturedFragment();
@@ -157,8 +162,17 @@ public class NavigationDrawer extends Activity {
     }
 
 
-    //for search View
-    public void changeToSearchForm(){
+    public void changeToSearchFormNews(){
+        Fragment fragment = new SearchFormNews(prc);
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    //for search View Sell Rent
+    public void changeToSearchFormSellRent(){
         Fragment fragment = new SearchForm(this,prc);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();

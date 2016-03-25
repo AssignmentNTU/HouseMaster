@@ -17,11 +17,12 @@ import java.util.ArrayList;
  */
 public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder>
 {
-
+    private RecyclerView recyclerView = null;
     private ArrayList<PlaceReview> placeReviewList;
 
-    public CardViewAdapter(ArrayList<PlaceReview> placeReviewList){
+    public CardViewAdapter(ArrayList<PlaceReview> placeReviewList,RecyclerView recyclerView){
         this.placeReviewList = placeReviewList;
+        this.recyclerView = recyclerView;
     }
 
 
@@ -34,6 +35,8 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         // create ViewHolder
         //the idea of cardholder is firstly it will create a veiw of each list
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
+        itemLayoutView.setOnClickListener(new MyOnClickListener());
+
         return viewHolder;
 
     }
@@ -82,4 +85,19 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         }
 
     }
+
+
+    class MyOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            int itemPosition = recyclerView.getChildPosition(v);
+            View currentView = recyclerView.getChildAt(itemPosition);
+            //then from here we can go to particular activity to check the item that we clic k
+
+
+            Log.e("Clicked and Position is",String.valueOf(itemPosition));
+        }
+    }
+
+
 }

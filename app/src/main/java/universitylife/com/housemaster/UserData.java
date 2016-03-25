@@ -3,6 +3,8 @@ package universitylife.com.housemaster;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by LENOVO on 02/03/2016.
  */
@@ -15,6 +17,7 @@ public class UserData  extends ParseObject{
     private String password;
     private String phoneNumber;
     //later we have ArrayList<PlaceReview>
+    private ArrayList<PlaceReview> listPlaceReview;
 
     public UserData(){
 
@@ -54,6 +57,23 @@ public class UserData  extends ParseObject{
     }
 
     //later we have 2 other method for sell function
+    public void checkListPlaceReviw(){
+        //in here we need to check whether the user has already had listPlaceRview or not
+       listPlaceReview = (ArrayList<PlaceReview>) get("listPlaceReview");
+        if(listPlaceReview == null){
+            listPlaceReview = new ArrayList<PlaceReview>();
+        }
+    }
 
+    public void addPlaceReview(PlaceReview placeReview){
+        if(listPlaceReview != null){
+
+        }
+    }
+
+
+    public ArrayList<PlaceReview> getPlaceReviewList(){
+        return listPlaceReview;
+    }
 
 }
