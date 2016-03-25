@@ -22,7 +22,7 @@ public class PlaceReviewCollectParse {
             @Override
             public void done(List<UserData> objects, ParseException e) {
                 if(e == null){
-                    //we will search all the UserData and retrieve 
+                    //we will search all the UserData and retrieve
                 }
             }
         });
