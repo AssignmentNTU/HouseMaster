@@ -21,27 +21,25 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-//this class will give news feed of people that sell or rent the HDB
 
-public class SellRent extends Fragment {
+public class ListLoader extends Fragment {
 
     //decalration of new attribute
     //private Button buttonRefreshed;
     private PlaceReviewCollect prc;
     private ArrayList<PlaceReview> listPlaceReview = null;
 
-    public SellRent() {
+    public ListLoader() {
 
     }
 
 
-    public SellRent(PlaceReviewCollect prc) {
-
-        this.prc = prc;
+    public ListLoader(PlaceReviewCollect prc) {
+            this.prc = prc;
     }
 
 
-    public SellRent(ArrayList<PlaceReview> listPlaceReview){
+    public ListLoader(ArrayList<PlaceReview> listPlaceReview){
         this.listPlaceReview = listPlaceReview;
     }
 

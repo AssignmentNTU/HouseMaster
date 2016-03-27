@@ -1,15 +1,11 @@
 package universitylife.com.housemaster;
 
 
-import android.app.Activity;
-import android.app.Application;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +69,7 @@ public class SearchFormNews extends Fragment {
 
 
     public void startFragmentFeatured(ArrayList<PlaceReview> listPlaceReview){
-        Fragment fragment = new Featured(listPlaceReview);
+        Fragment fragment = new ListLoader(listPlaceReview);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);

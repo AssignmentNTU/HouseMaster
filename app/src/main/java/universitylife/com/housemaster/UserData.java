@@ -57,23 +57,13 @@ public class UserData  extends ParseObject{
     }
 
     //later we have 2 other method for sell function
-    public void checkListPlaceReviw(){
-        //in here we need to check whether the user has already had listPlaceRview or not
-       listPlaceReview = (ArrayList<PlaceReview>) get("listPlaceReview");
-        if(listPlaceReview == null){
-            listPlaceReview = new ArrayList<PlaceReview>();
-        }
-    }
-
-    public void addPlaceReview(PlaceReview placeReview){
-        if(listPlaceReview != null){
-
-        }
+    public void addPlaceReview(ArrayList<PlaceReview> listPlaceReview){
+        put("placeReviewList",listPlaceReview);
     }
 
 
     public ArrayList<PlaceReview> getPlaceReviewList(){
-        return listPlaceReview;
+        return (ArrayList<PlaceReview>) get("placeReviewList");
     }
 
 }

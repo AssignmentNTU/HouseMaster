@@ -4,18 +4,23 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.concurrent.Callable;
+import com.parse.Parse;
+import com.parse.ParseObject;
+
+import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +33,10 @@ public class NavigationDrawer extends Activity {
     private ListView drawerListView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private PlaceReviewCollect prc;
+
+
+    //SharedPreference to create session for user login
+    private SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,14 +84,33 @@ public class NavigationDrawer extends Activity {
         final ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
         //need to crehate thread so it will wait for the previous session to be finished
-
         exec.schedule(new Runnable(){
             @Override
             public void run(){
+                ArrayList<PlaceReview> list =  prc.getPlaceReviewList();
+                for(int i = 0 ; i < list.size() ; i++){
+                    PlaceReview place = list.get(i);
+                    Log.e("resultingFromPlace",place.getParseFile().toString());
+                }
+
+
                 changeToFeaturedFragment();
             }
-        }, 8, TimeUnit.SECONDS);
+        }, 6, TimeUnit.SECONDS);
 
+
+        //to simulate user login i will use SharePreference
+        shared = getSharedPreferences("UserPrefs",MODE_PRIVATE);
+        SharedPreferences.Editor edit = shared.edit();
+        edit.putString("User","edward");
+        edit.commit();
+
+        //create mock user in here
+        Parse.initialize(getBaseContext(), "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
+        ParseObject.registerSubclass(UserData.class);
+        UserData user = new UserData("edwardSujono@yahoo.com","edward","12345");
+        user.addPlaceReview(new ArrayList<PlaceReview>());
+        user.saveInBackground();
     }
 
 
@@ -128,17 +156,20 @@ public class NavigationDrawer extends Activity {
                     changeToFeaturedFragment();
                     break;
                 case 1:
-                    //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     changeToSearchFormNews();
                     break;
 
                 case 2:
                     //for SellAndRent
-                    //Toast.makeText(MainActivity.this, "3", Toast.LENGTH_LONG).show();
+                    changeToSellRentView();
                     break;
                 case 3:
                     //for SellAndRentSearch
                     changeToSearchFormSellRent();
+                    break;
+                case 4:
+                    //go to offer form
+                    changeToOfferForm();
                     break;
                 default:
                   //  changeToFeaturedFragment();
@@ -153,7 +184,7 @@ public class NavigationDrawer extends Activity {
 
     //for featured view
     public void changeToFeaturedFragment(){
-        Fragment fragment = new Featured(prc);
+        Fragment fragment = new ListLoader(prc);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);
@@ -174,6 +205,27 @@ public class NavigationDrawer extends Activity {
     //for search View Sell Rent
     public void changeToSearchFormSellRent(){
         Fragment fragment = new SearchForm(this,prc);
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    //to go to the sell/Rent view
+    public void changeToSellRentView(){
+        PlaceReviewCollectParse prc = new PlaceReviewCollectParse(getBaseContext());
+        Fragment fragment = new SellRentList(prc);
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    //for offer form
+    public void changeToOfferForm(){
+        Fragment fragment = new OfferForm(this);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);

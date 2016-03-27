@@ -1,0 +1,140 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Offer">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/offer_location"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:hint="Location/Address"
+                android:inputType="text"/>
+
+            <Button
+                android:id="@+id/offer_GPS_button"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="GPS"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="20dp"
+                android:gravity="center_vertical"
+                android:text="S$"/>
+            <EditText
+                android:id="@+id/offer_price"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Price"
+                android:inputType="number"/>
+            <CheckBox
+                android:id="@+id/offer_rent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Rent"/>
+            <CheckBox
+                android:id="@+id/offer_sell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Sell"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_description"
+            android:text="Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/description"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="4"
+            android:maxLines="10"
+            android:gravity="top|left"
+            android:scrollbars="vertical"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:id="@+id/phone_number"
+            android:hint="Phone Number"
+            />
+
+        <TextView
+            android:id="@+id/upload_image"
+            android:text="Upload Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="4"
+                android:hint="File location"
+                android:inputType="text"/>
+            <Button
+                android:id="@+id/image_takephoto_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Take Photo"/>
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:id="@+id/offer_post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Post"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/image_result"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

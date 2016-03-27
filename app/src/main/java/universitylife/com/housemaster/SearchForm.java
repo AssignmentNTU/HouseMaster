@@ -22,11 +22,14 @@ import java.util.ArrayList;
 public class SearchForm extends Fragment {
 
     private Activity activity;
-    private EditText addressText;
-    private Button buttonGPS;
     private PlaceReviewCollect prc;
     private ArrayList<PlaceReview> listPlaceReview;
-    private String searchContent;
+
+
+    //for view attribute
+    private EditText addressText;
+    private Button buttonGPS;
+    
 
 
     public SearchForm() {
@@ -47,21 +50,10 @@ public class SearchForm extends Fragment {
         View currentView = inflater.inflate(R.layout.fragment_search_form, container, false);
         addressText = (EditText)  currentView.findViewById(R.id.search_location);
         buttonGPS = (Button) currentView.findViewById(R.id.search_GPS_button);
-        // create ContextThemeWrapper from the original Activity Context with the custom theme
-        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.AppTheme);
-        // clone the inflater using the ContextThemeWrapper
-        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
 
 
-        //when buttonGps is clicked
-        buttonGPS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-
-        return inflater.inflate(R.layout.fragment_search_form, container, false);
+        return currentView;
     }
 
 

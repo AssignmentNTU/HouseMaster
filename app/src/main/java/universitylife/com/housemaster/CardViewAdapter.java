@@ -1,6 +1,9 @@
 package universitylife.com.housemaster;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,7 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by LENOVO on 19/03/2016.
@@ -42,11 +52,15 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         //this will bind the placeReviewList with the viewHolder class
         holder.hdbName.setText(placeReviewList.get(position).getHdbName()+"");
-        holder.imageIcon.setImageResource(placeReviewList.get(position).getImageUrl());
-        Log.e("imagePosition: ",placeReviewList.get(position).getImageUrl()+"");
+        final Bitmap bitmap = null;
+        final byte[] fileByte = null;
+        Log.e("parsingCheck",placeReviewList.get(position).getParseFile().toString());
+        final ParseFile parseFile = placeReviewList.get(position).getParseFile();
+        loadImages(parseFile,holder.imageIcon);
+        //holder.imageIcon.setImageURI(Uri.parse(parseFile.getUrl()));
         //because list Amenities is in the ArrayList form so need to change the representation to a String with commas
         String listingAmenities = "";
         for(String k : placeReviewList.get(position).getListAmenities()){
@@ -56,8 +70,41 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             listingAmenities = listingAmenities.substring(0, listingAmenities.length() - 1);
         }
         holder.textListAmenities.setText("List Amenities: "+listingAmenities);
-        holder.textLocation.setText("Address: "+placeReviewList.get(position).getLocation());
+        if(placeReviewList.get(position).getLocation() != null) {
+            holder.textLocation.setText("Address: " + placeReviewList.get(position).getLocation());
+        }else{
+            //sell or rent status
+            String rentsell = "";
+            if(placeReviewList.get(position).isRent()){
+                rentsell += "SELL";
+            }
+            rentsell += " ";
+            if(placeReviewList.get(position).isSold()){
+                rentsell += "RENT";
+            }
+            holder.textLocation.setText("STATUS: " +rentsell);
+        }
         holder.textPrice.setText("Price: "+placeReviewList.get(position).getPrice());
+    }
+
+    private void loadImages(ParseFile thumbnail, final ImageView img) {
+        Log.e("after this",thumbnail.toString());
+        Log.e("img: ",img.toString());
+        if (thumbnail != null) {
+            thumbnail.getDataInBackground(new GetDataCallback() {
+                @Override
+                public void done(byte[] data, ParseException e) {
+                    if (e == null) {
+                        Log.e("successfull","true");
+                        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                        img.setImageBitmap(bmp);
+                    } else {
+                    }
+                }
+            });
+        } else {
+            img.setImageResource(R.drawable.hdb1);
+        }
     }
 
 
@@ -93,8 +140,6 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             int itemPosition = recyclerView.getChildPosition(v);
             View currentView = recyclerView.getChildAt(itemPosition);
             //then from here we can go to particular activity to check the item that we clic k
-
-
             Log.e("Clicked and Position is",String.valueOf(itemPosition));
         }
     }
