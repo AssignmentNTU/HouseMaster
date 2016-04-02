@@ -31,13 +31,14 @@ public class PlaceReviewCollectParse {
 
 
         //so basically in my parse cloud accoutn there has already had a relational database of PlaceReview
-
+        final AmenitiesGenerator generator = new AmenitiesGenerator(context,listPlaceReview,"gym,department_store");
         ParseQuery<PlaceReview> query = ParseQuery.getQuery("PlaceReview");
         query.findInBackground(new FindCallback<PlaceReview>() {
             @Override
             public void done(List<PlaceReview> objects, ParseException e) {
                 for(int i = 0 ;i < objects.size() ; i++){
-                    listPlaceReview.add(objects.get(i));
+                    PlaceReview place = objects.get(i);
+                    generator.getAmenitiesListLong(place.getHdbName(),place.getHdbDescription(),place.getPrice(),place.isRent(),place.isSold(),place.getPhoneNumber(),place.getParseFile());
                 }
             }
         });

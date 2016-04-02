@@ -204,7 +204,7 @@ public class NavigationDrawer extends Activity {
 
     //for search View Sell Rent
     public void changeToSearchFormSellRent(){
-        Fragment fragment = new SearchForm(this,prc);
+        Fragment fragment = new SearchForm(this);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);

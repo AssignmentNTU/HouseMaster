@@ -138,7 +138,7 @@ import java.util.concurrent.TimeUnit;
                 //price
                 String priceHDB = price;
                 //change the amenities List
-                AmenitiesGenerator amenitiesGenerator = new AmenitiesGenerator(context,placeReviewsList);
+                AmenitiesGenerator amenitiesGenerator = new AmenitiesGenerator(context,placeReviewsList,"gym,department_store");
                 amenitiesGenerator.getAmenitiesListShort(hdbName ,townString,priceHDB,imageList[i%imageList.length]);
             }
 

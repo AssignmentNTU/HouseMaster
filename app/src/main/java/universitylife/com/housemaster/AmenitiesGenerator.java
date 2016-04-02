@@ -47,12 +47,13 @@ public class AmenitiesGenerator {
 
     //Listing PlaceReviewList purpoee
     private ArrayList<PlaceReview> listPlaceReview = null;
+    private String typeAmenities = null;
 
 
-
-    public AmenitiesGenerator(Context context,ArrayList<PlaceReview> listPlaceReview){
+    public AmenitiesGenerator(Context context,ArrayList<PlaceReview> listPlaceReview,String typeAmenities){
         this.context = context;
         this.listPlaceReview  = listPlaceReview;
+        this.typeAmenities = typeAmenities;
     }
 
 
@@ -81,7 +82,7 @@ public class AmenitiesGenerator {
 
 
             //then we need to specified what sort of amenities we want to retrieve
-            String typeAmenity = "Hotel";
+            String typeAmenity = typeAmenities;
             String keyAPI = "AIzaSyBFNY0--sAqq2jVFAcs11jtTRJ2OYRVHYE";
 
 
