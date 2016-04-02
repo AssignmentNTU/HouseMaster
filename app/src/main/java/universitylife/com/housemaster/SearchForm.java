@@ -104,7 +104,11 @@ public class SearchForm extends Fragment {
                 boolean rent = checkRent.isChecked();
                 boolean sold = checkSold.isChecked();
                 //start featured Fragment
-                startFragmentFeatured(doSearching(addressString, choosenAmenities, lowPriceString, highPriceString, rent, sold, listPlaceReview));
+                if(lowPriceString == ""  || highPriceString == "" || lowPriceString == null || highPriceString == "") {
+
+                }else{
+
+                }
             }
         });
 
@@ -147,7 +151,7 @@ public class SearchForm extends Fragment {
 
         // #2 filter by price if user input
         listFilterPlaceReview.clear();
-        if(lowestPrice != null && highestPrice != null){
+        if(lowestPrice != null && highestPrice != null || ( lowestPrice!= ""  && highestPrice != "" ) ){
             for(int i = 0 ; i < listPlaceReview.size() ; i++){
                 PlaceReview place = listPlaceReview.get(i);
                 Double currPrice = Double.parseDouble(place.getPrice());

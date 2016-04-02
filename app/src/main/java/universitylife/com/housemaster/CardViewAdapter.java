@@ -76,11 +76,11 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             //sell or rent status
             String rentsell = "";
             if(placeReviewList.get(position).isRent()){
-                rentsell += "SELL";
+                rentsell += "RENT";
             }
             rentsell += " ";
             if(placeReviewList.get(position).isSold()){
-                rentsell += "RENT";
+                rentsell += "SELL";
             }
             holder.textLocation.setText("STATUS: " +rentsell);
         }
