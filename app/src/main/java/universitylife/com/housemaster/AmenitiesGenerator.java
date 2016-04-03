@@ -13,8 +13,10 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -63,7 +65,7 @@ public class AmenitiesGenerator {
 
     public void getAmenitiesListShort(String hdbName,String location,String priceHDB,int imageIndex){
         // Getting Google Play availability status
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
+        int status = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context);
 
         if(status == ConnectionResult.SUCCESS){
             //when the phone is supported by google maps
@@ -73,6 +75,7 @@ public class AmenitiesGenerator {
             Address address = null;
             try {
                 //change jurong east as town
+                Log.i("location", location);
                 List<Address> list = geocoder.getFromLocationName(location,1);
                 address = list.get(0);
                 mLatitude = address.getLatitude();
@@ -98,7 +101,7 @@ public class AmenitiesGenerator {
             sb.append("&key="+keyAPI);
             // Creating a new non-ui thread task to download json data
             //in here i will pass my PlaceReviewList so it just will be added
-            PlacesTask placesTask = new PlacesTask(hdbName,location,priceHDB,imageIndex);
+            PlacesTask placesTask = new PlacesTask(hdbName, new LatLng(mLatitude, mLongitude), location,priceHDB,imageIndex);
             // Invokes the "doInBackground()" method of the class PlaceTask
             placesTask.execute(sb.toString());
 
@@ -150,7 +153,7 @@ public class AmenitiesGenerator {
             sb.append("&key="+keyAPI);
             // Creating a new non-ui thread task to download json data
             //in here i will pass my PlaceReviewList so it just will be added
-            PlacesTask placesTask = new PlacesTask(hdbName,price,description,phoneNumber,sale,rent,imageFile);
+            PlacesTask placesTask = new PlacesTask(hdbName, new LatLng(mLatitude, mLongitude), price,description,phoneNumber,sale,rent,imageFile);
             // Invokes the "doInBackground()" method of the class PlaceTask
             placesTask.execute(sb.toString());
 
@@ -209,7 +212,7 @@ public class AmenitiesGenerator {
     private class PlacesTask extends AsyncTask<String, Integer, String> {
 
         String data = null;
-
+        LatLng position;
 
         //attribute for the placeReview
         String hdbName = null;
@@ -225,15 +228,16 @@ public class AmenitiesGenerator {
 
 
         //this constructor is used just by PlaceReviewCollect
-        public PlacesTask(String hdbName,String location,String priceRange, int indexImage ){
+        public PlacesTask(String hdbName, LatLng position, String location,String priceRange, int indexImage ){
             this.hdbName = hdbName;
             this.priceRange = priceRange;
             this.indexImage = indexImage;
             this.location = location;
+            this.position = position;
         }
 
 
-        public PlacesTask(String hdbName,String price,String description,String phoneNumber,boolean rent,boolean sale,ParseFile imageFile){
+        public PlacesTask(String hdbName, LatLng position, String price,String description,String phoneNumber,boolean rent,boolean sale,ParseFile imageFile){
             this.hdbName = hdbName;
             this.price = price;
             this.description = description;
@@ -241,6 +245,7 @@ public class AmenitiesGenerator {
             this.sale = sale;
             this.imageFile = imageFile;
             this.phoneNumber = phoneNumber;
+            this.position = position;
         }
 
 
@@ -262,12 +267,12 @@ public class AmenitiesGenerator {
             //the different matter is additional attribute that is declared if imageFile is null then the caller must be PlaceRevuewCollect
             //otherwise it is PlaceReviewCollectParse
             if(imageFile == null) {
-                ParserTask parserTask = new ParserTask(hdbName, location, priceRange, indexImage);
+                ParserTask parserTask = new ParserTask(hdbName, position, location, priceRange, indexImage);
                 // Start parsing the Google places in JSON format
                 // Invokes the "doInBackground()" method of the class ParseTask
                 parserTask.execute(result);
             }else{
-                ParserTask parserTask = new ParserTask(hdbName,price,description,phoneNumber,rent,sale,imageFile);
+                ParserTask parserTask = new ParserTask(hdbName, position, price, description,phoneNumber,rent,sale,imageFile);
                 // Start parsing the Google places in JSON format
                 // Invokes the "doInBackground()" method of the class ParseTask
                 parserTask.execute(result);
@@ -291,16 +296,19 @@ public class AmenitiesGenerator {
         boolean rent= false;
         boolean sale= false;
         ParseFile imageFile;
+        LatLng position;
 
-        public ParserTask(String hdbName ,String location,String priceRange , int indexImage){
+        public ParserTask(String hdbName , LatLng position, String location,String priceRange , int indexImage){
             this.hdbName = hdbName;
+            this.position = position;
             this.priceRange = priceRange;
             this.indexImage = indexImage;
             this.location = location;
         }
 
-        public ParserTask(String hdbName,String price,String description,String phoneNumber,boolean rent,boolean sale,ParseFile imageFile){
+        public ParserTask(String hdbName, LatLng position, String price,String description,String phoneNumber,boolean rent,boolean sale,ParseFile imageFile){
             this.hdbName = hdbName;
+            this.position = position;
             this.price = price;
             this.description = description;
             this.rent= rent;
@@ -354,10 +362,10 @@ public class AmenitiesGenerator {
                     Log.e("cannot be svae", "haha");
                     e.printStackTrace();
                 }
-                PlaceReview placeReview = new PlaceReview(hdbName, listAmenities, location, priceRange, photo,userName);
+                PlaceReview placeReview = new PlaceReview(hdbName, position, listAmenities, location, priceRange, photo,userName);
                 listPlaceReview.add(placeReview);
             }else{
-                PlaceReview placeReview = new PlaceReview(hdbName,description,price,imageFile,listAmenities,rent,sale,phoneNumber,userName);
+                PlaceReview placeReview = new PlaceReview(hdbName, position, description, price,imageFile,listAmenities,rent,sale,phoneNumber,userName);
                 listPlaceReview.add(placeReview);
             }
         }

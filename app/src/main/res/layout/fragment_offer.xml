@@ -9,27 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <EditText
-                android:id="@+id/offer_location"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="5"
-                android:hint="Location/Address"
-                android:inputType="text"/>
-
-            <Button
-                android:id="@+id/offer_GPS_button"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="GPS"/>
-        </LinearLayout>
-
+        <fragment
+                android:id="@+id/location_autocomplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
 
         <LinearLayout
             android:layout_width="match_parent"

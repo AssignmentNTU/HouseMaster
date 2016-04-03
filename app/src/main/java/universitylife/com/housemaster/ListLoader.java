@@ -1,28 +1,19 @@
 package universitylife.com.housemaster;
 
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 
-public class ListLoader extends Fragment {
+public class ListLoader extends Fragment implements CardViewAdapter.OnPlaceClick {
 
     //decalration of new attribute
     //private Button buttonRefreshed;
@@ -53,27 +44,19 @@ public class ListLoader extends Fragment {
         //buttonRefreshed = (Button) featureView.findViewById(R.id.refresehButton);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         if(listPlaceReview == null) {
-            CardViewAdapter adapter = new CardViewAdapter(prc.getPlaceReviewList(), recyclerView);
-            recyclerView.setAdapter(adapter);
-            return featureView;
-        }else{
-            CardViewAdapter adapter = new CardViewAdapter(listPlaceReview, recyclerView);
-            recyclerView.setAdapter(adapter);
-            return featureView;
+            listPlaceReview = prc.getPlaceReviewList();
         }
+
+        CardViewAdapter adapter = new CardViewAdapter(listPlaceReview, recyclerView, this);
+        recyclerView.setAdapter(adapter);
+        return featureView;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public void onClick(PlaceReview placeReview) {
+        Intent intent = new Intent(getActivity(), PlaceReviewActivity.class);
+        PlaceReviewActivity.placeReview = placeReview;
+        startActivity(intent);
+    }
 }

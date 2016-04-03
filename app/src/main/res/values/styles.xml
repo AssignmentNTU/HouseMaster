@@ -5,4 +5,5 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <integer name="shortAnimDuration">300</integer>
 </resources>
