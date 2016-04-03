@@ -102,7 +102,8 @@ public class NavigationDrawer extends Activity {
         //to simulate user login i will use SharePreference
         shared = getSharedPreferences("UserPrefs",MODE_PRIVATE);
         SharedPreferences.Editor edit = shared.edit();
-        edit.putString("User","edward");
+        edit.putString("UserName","edward");
+        edit.putString("Email","edwardsujono@yahoo.com");
         edit.commit();
 
         //create mock user in here
@@ -171,6 +172,10 @@ public class NavigationDrawer extends Activity {
                     //go to offer form
                     changeToOfferForm();
                     break;
+                case 5:
+                    //go to your profile
+                    changeToProfile();
+                    break;
                 default:
                   //  changeToFeaturedFragment();
                     break;
@@ -226,6 +231,16 @@ public class NavigationDrawer extends Activity {
     //for offer form
     public void changeToOfferForm(){
         Fragment fragment = new OfferForm(this);
+        FragmentManager manager =  this.getFragmentManager();
+        FragmentTransaction fragmentTransaction  = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    //for profile View
+    public void changeToProfile(){
+        Fragment fragment = new Profile(this);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);

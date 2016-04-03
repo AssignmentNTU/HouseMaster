@@ -1,6 +1,7 @@
 package universitylife.com.housemaster;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Address;
@@ -48,12 +49,15 @@ public class AmenitiesGenerator {
     //Listing PlaceReviewList purpoee
     private ArrayList<PlaceReview> listPlaceReview = null;
     private String typeAmenities = null;
-
+    private String userName = null;
+    private SharedPreferences shared;
 
     public AmenitiesGenerator(Context context,ArrayList<PlaceReview> listPlaceReview,String typeAmenities){
         this.context = context;
         this.listPlaceReview  = listPlaceReview;
         this.typeAmenities = typeAmenities;
+        shared = context.getSharedPreferences("UserPrefs",context.MODE_PRIVATE);
+        userName = shared.getString("UserName",null);
     }
 
 
@@ -350,10 +354,10 @@ public class AmenitiesGenerator {
                     Log.e("cannot be svae", "haha");
                     e.printStackTrace();
                 }
-                PlaceReview placeReview = new PlaceReview(hdbName, listAmenities, location, priceRange, photo);
+                PlaceReview placeReview = new PlaceReview(hdbName, listAmenities, location, priceRange, photo,userName);
                 listPlaceReview.add(placeReview);
             }else{
-                PlaceReview placeReview = new PlaceReview(hdbName,description,price,imageFile,listAmenities,rent,sale,phoneNumber);
+                PlaceReview placeReview = new PlaceReview(hdbName,description,price,imageFile,listAmenities,rent,sale,phoneNumber,userName);
                 listPlaceReview.add(placeReview);
             }
         }

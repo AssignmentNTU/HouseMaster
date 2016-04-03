@@ -32,9 +32,6 @@
         <item>Search Sell/Rent</item>
         <item>Offer Place</item>
         <item>Profile</item>
-        <item>Setting</item>
-        <item>Help</item>
-        <item>History</item>
     </string-array>
     <string name="title_activity_navigation_drawer">Home</string>
     <string name="title_activity_map">Map</string>

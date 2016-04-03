@@ -57,7 +57,7 @@ public class OfferForm extends Fragment {
     public OfferForm(Context c) {
         this.context  = c;
         shared = context.getSharedPreferences("UserPrefs", context.MODE_PRIVATE);
-        currentUser = shared.getString("User",null);
+        currentUser = shared.getString("UserName",null);
     }
 
 
@@ -104,7 +104,7 @@ public class OfferForm extends Fragment {
                 //data added
                 ArrayList<String> listPlace = new ArrayList<String>();
                 if(photo != null) {
-                    final PlaceReview placeAdded = new PlaceReview(hdbname, descriptiontext,priceText, photo, listPlace,rentCheck,sellCheck,phonetext);
+                    final PlaceReview placeAdded = new PlaceReview(hdbname, descriptiontext,priceText, photo, listPlace,rentCheck,sellCheck,phonetext,currentUser);
                     ArrayList<PlaceReview> listPlaceReview = getExistedPlaceReview();
                     if(listPlaceReview == null){
                         //never create list before then just create new and store it to the database

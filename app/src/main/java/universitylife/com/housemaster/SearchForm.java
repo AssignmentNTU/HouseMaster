@@ -134,7 +134,18 @@ public class SearchForm extends Fragment {
         ArrayList<PlaceReview> listFilterPlaceReview = new ArrayList<PlaceReview>();
         //the type of amenity lis no needed to be filter because google API has already done so
         Log.e("insertParameter",hdbName+" "+amenitiyText+" "+lowestPrice+" "+highestPrice+" "+rent+" "+sell);
+        //ommit the place which the list of amenities is zero
+        for (int i = 0; i < listPlaceReview.size(); i++) {
+            PlaceReview place = listPlaceReview.get(i);
+            if(place.getListAmenities().size() > 0){
+                listFilterPlaceReview.add(place);
+            }
+        }
+        listPlaceReview = (ArrayList<PlaceReview>) listFilterPlaceReview.clone();
+
+
         // #1 filter by name if user inputted
+        listFilterPlaceReview.clear();
         if(hdbName != null) {
             for (int i = 0; i < listPlaceReview.size(); i++) {
                 PlaceReview place = listPlaceReview.get(i);

@@ -29,6 +29,7 @@ public class PlaceReview extends ParseObject{
     private String phoneNumber;
     private String email;
     private ParseFile imageFile;
+    private String userName;
 
 
     public PlaceReview(){
@@ -42,22 +43,24 @@ public class PlaceReview extends ParseObject{
 
 
     //constructor for the card view purpose
-    public PlaceReview(String hdbName,ArrayList<String> listAmenities, String location,String price,ParseFile imageFile){
+    public PlaceReview(String hdbName,ArrayList<String> listAmenities, String location,String price,ParseFile imageFile,String userName){
         this.hdbName = hdbName;
         this.amenities = listAmenities;
         this.location = location;
         this.price = price;
         this.imageFile = imageFile;
+        this.userName = userName;
         put("hdbName",hdbName);
         put("amenities",listAmenities);
         put("location",location);
         put("price",price);
         put("ImageFile", imageFile);
+        put("userName",userName);
     }
 
 
     //constructor for the card view purpose
-    public PlaceReview(String hdbName, String description,String price,ParseFile imageFile,ArrayList<String> listAmenities,boolean rent,boolean sale,String phoneNumber){
+    public PlaceReview(String hdbName, String description,String price,ParseFile imageFile,ArrayList<String> listAmenities,boolean rent,boolean sale,String phoneNumber,String userName){
         this.hdbName = hdbName;
         this.amenities = listAmenities;
         this.description = description;
@@ -66,6 +69,7 @@ public class PlaceReview extends ParseObject{
         this.rent = rent;
         this.sale = sale;
         this.phoneNumber = phoneNumber;
+        this.userName = userName;
         put("hdbName",hdbName);
         put("amenities",listAmenities);
         put("description",description);
@@ -74,6 +78,7 @@ public class PlaceReview extends ParseObject{
         put("rent",rent);
         put("sale",sale);
         put("phoneNumber",phoneNumber);
+        put("userName",userName);
     }
 
 
@@ -123,8 +128,7 @@ public class PlaceReview extends ParseObject{
         return (String)get("email");
     }
 
-
-
+    public String getUsername(){ return (String)get("userName"); }
 
     //for setter method
 }
