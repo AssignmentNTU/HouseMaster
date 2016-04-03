@@ -104,11 +104,7 @@ public class SearchForm extends Fragment {
                 boolean rent = checkRent.isChecked();
                 boolean sold = checkSold.isChecked();
                 //start featured Fragment
-                if(lowPriceString == ""  || highPriceString == "" || lowPriceString == null || highPriceString == "") {
-
-                }else{
-
-                }
+                startFragmentFeatured(doSearching(addressString,choosenAmenities,lowPriceString,highPriceString,rent,sold,listPlaceReview));
             }
         });
 
