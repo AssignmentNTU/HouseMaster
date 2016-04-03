@@ -50,14 +50,12 @@ public class LoginForm extends Activity {
                 //general Login is clicked
                 accountManager.verifyLogin(username,password);
                 //after we sign in we will redirected to search form
-                goToSearchForm();
+               // goToSearchForm();
             }
         });
-
-
     }
 
-    private void goToSearchForm(){
+    public void goToSearchForm(){
         Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }

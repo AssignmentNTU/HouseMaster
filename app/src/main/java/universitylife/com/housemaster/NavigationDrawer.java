@@ -84,6 +84,7 @@ public class NavigationDrawer extends Activity {
         final ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
         //need to crehate thread so it will wait for the previous session to be finished
+        //normal 6s
         exec.schedule(new Runnable(){
             @Override
             public void run(){
@@ -99,19 +100,15 @@ public class NavigationDrawer extends Activity {
         }, 6, TimeUnit.SECONDS);
 
 
-        //to simulate user login i will use SharePreference
-        shared = getSharedPreferences("UserPrefs",MODE_PRIVATE);
-        SharedPreferences.Editor edit = shared.edit();
-        edit.putString("UserName","edward");
-        edit.putString("Email","edwardsujono@yahoo.com");
-        edit.commit();
+
 
         //create mock user in here
+        /*
         Parse.initialize(getBaseContext(), "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
         ParseObject.registerSubclass(UserData.class);
         UserData user = new UserData("edwardSujono@yahoo.com","edward","12345");
         user.addPlaceReview(new ArrayList<PlaceReview>());
-        user.saveInBackground();
+        user.saveInBackground();*/
     }
 
 

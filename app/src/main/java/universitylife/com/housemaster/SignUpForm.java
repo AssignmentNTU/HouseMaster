@@ -55,7 +55,6 @@ public class SignUpForm extends Activity{
                 email = emailText.getText().toString();
                 //general Login is clicked
                 Log.e("Click", "Loginisclicked");
-                goToSearchForm();
                 account.verifySignUp(email,username,password);
             }
         });

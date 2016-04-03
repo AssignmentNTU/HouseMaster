@@ -70,6 +70,9 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
             listingAmenities = listingAmenities.substring(0, listingAmenities.length() - 1);
         }
         holder.textListAmenities.setText("List Amenities: "+listingAmenities);
+        if(listingAmenities.equals("")){
+            holder.textListAmenities.setText("");
+        }
         if(placeReviewList.get(position).getLocation() != null) {
             holder.textLocation.setText("Address: " + placeReviewList.get(position).getLocation());
         }else{

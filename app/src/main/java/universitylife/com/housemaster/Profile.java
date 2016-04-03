@@ -90,7 +90,7 @@ public class Profile extends Fragment {
         //so basically in my parse cloud accoutn there has already had a relational database of PlaceReview
         ParseQuery<PlaceReview> query = ParseQuery.getQuery("PlaceReview");
         //to load the amenities
-        final AmenitiesGenerator generator = new AmenitiesGenerator(context,listPlaceReview,"department_store");
+
         //ParseObject User
         final ArrayList<PlaceReview>[] list = new ArrayList[1];
         query.findInBackground(new FindCallback<PlaceReview>() {
@@ -98,10 +98,11 @@ public class Profile extends Fragment {
             public void done(List<PlaceReview> objects, ParseException e) {
                 //if the usetName equals with current userName then put it to the listPlaceReview
                 for(int i = 0 ; i < objects.size() ; i++){
+                    Log.e("userName",userName);
+                    Log.e("userObjectName",objects.get(i).getUsername());
                     if(objects.get(i).getUsername().equals(userName)){
                         PlaceReview place = objects.get(i);
-                        generator.getAmenitiesListLong(place.getHdbName(),place.getHdbDescription(),place.getPrice(),place.isRent(),place.isSold(),place.getPhoneNumber(),place.getParseFile());
-
+                        listPlaceReview.add(place);
                     }
                 }
                 loadFragment(listPlaceReview);

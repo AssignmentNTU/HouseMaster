@@ -18,7 +18,7 @@ public class MyProgressDialog {
     public void showProgressDialogRetrieveData(){
 
         pDialog = new ProgressDialog(myContext);
-        pDialog.setMessage("Getting Data ...");
+        pDialog.setMessage("Loading ...");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(true);
         pDialog.show();
