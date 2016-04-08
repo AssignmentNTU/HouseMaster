@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchFormNews extends Fragment {
+public class SearchFormNews extends Fragment implements  SearchInterface{
 
     private PlaceReviewCollect prc;
     private ArrayList<PlaceReview> listPlaceReview;
@@ -113,5 +113,15 @@ public class SearchFormNews extends Fragment {
         Log.e("HDBName",hdbFiltered);
         return hdbFiltered;
     }
+    @Override
+    public ArrayList<PlaceReview> doSearching(String hdbName, String amenitiyText, String lowestPrice, String highestPrice, boolean rent, boolean sell, ArrayList<PlaceReview> listPlaceReview) {
+        //not used in here
+        return listPlaceReview;
+    }
+
+
+
 
 }
+
+

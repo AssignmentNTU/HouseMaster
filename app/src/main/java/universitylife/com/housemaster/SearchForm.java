@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchForm extends Fragment {
+public class SearchForm extends Fragment implements  SearchInterface{
 
     private Activity activity;
     private PlaceReviewCollectParse prc;
@@ -202,6 +202,12 @@ public class SearchForm extends Fragment {
         //return the list of filtered placeReview
         return listPlaceReview;
 
+    }
+
+    @Override
+    public ArrayList<PlaceReview> doSearching(String contentSearch) {
+        //is not used in here
+        return null;
     }
 
 }

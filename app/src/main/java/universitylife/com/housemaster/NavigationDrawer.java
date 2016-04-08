@@ -196,7 +196,10 @@ public class NavigationDrawer extends Activity {
 
 
     public void changeToSearchFormNews(){
-        Fragment fragment = new SearchFormNews(prc);
+        FactorySearchForm factory = new FactorySearchForm(this,prc);
+        Fragment producedFragment = (Fragment)factory.getSearchForm(2);
+        SearchManager managerSearch = new SearchManager(producedFragment);
+        Fragment fragment = managerSearch.setSearchForm();
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);
@@ -206,7 +209,10 @@ public class NavigationDrawer extends Activity {
 
     //for search View Sell Rent
     public void changeToSearchFormSellRent(){
-        Fragment fragment = new SearchForm(this);
+        FactorySearchForm factory = new FactorySearchForm(this,prc);
+        Fragment producedFragment = (Fragment)factory.getSearchForm(1);
+        SearchManager managerSearch = new SearchManager(producedFragment);
+        Fragment fragment = managerSearch.setSearchForm();
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,fragment);
