@@ -29,7 +29,6 @@ import java.util.ArrayList;
 public class SearchForm extends Fragment implements  SearchInterface{
 
     private Activity activity;
-    private PlaceReviewCollectParse prc;
     private ArrayList<PlaceReview> listPlaceReview = new ArrayList<PlaceReview>();
 
 
@@ -49,8 +48,8 @@ public class SearchForm extends Fragment implements  SearchInterface{
 
     public SearchForm(Activity activity) {
         this.activity = activity;
-        prc = new PlaceReviewCollectParse(activity);
-        prc.getPlaceReviewList(listPlaceReview);
+        PlaceReviewDao place = new PlaceReviewCollectParse(activity);
+        place.getPlaceReviewList(listPlaceReview);
     }
 
 

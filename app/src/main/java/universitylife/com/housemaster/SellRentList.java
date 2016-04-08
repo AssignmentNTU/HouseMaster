@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class SellRentList extends Fragment {
 
-    private PlaceReviewCollectParse prc;
+    private PlaceReviewDao prc;
     private ArrayList<PlaceReview> listPlaceReview = new ArrayList<PlaceReview>();
 
 
@@ -38,7 +38,7 @@ public class SellRentList extends Fragment {
 
     }
 
-    public SellRentList(PlaceReviewCollectParse prc) {
+    public SellRentList(PlaceReviewDao prc) {
         this.prc = prc;
         prc.getPlaceReviewList(listPlaceReview);
     }

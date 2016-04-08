@@ -15,17 +15,21 @@ import java.util.List;
 /**
  * Created by LENOVO on 25/03/2016.
  */
-public class PlaceReviewCollectParse {
+public class PlaceReviewCollectParse implements PlaceReviewDao{
     //in here i will retrieve all place that is sold or rent by user of HosueMaster
 
     private Context context;
-    private ArrayList<ArrayList<PlaceReview>> listPlaceReviewAll = new ArrayList();
 
 
     public PlaceReviewCollectParse(Context context){
         this.context = context;
     }
 
+
+    @Override
+    public ArrayList<PlaceReview> getPlaceReviewList() {
+        return null;
+    }
 
     public void getPlaceReviewList(final ArrayList<PlaceReview> listPlaceReview){
 
@@ -43,6 +47,11 @@ public class PlaceReviewCollectParse {
             }
         });
 
+    }
+
+    @Override
+    public void addToParse(UserData user, ArrayList<PlaceReview> listPlaceReview) {
+        user.addPlaceReview(listPlaceReview);
     }
 
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -173,6 +174,10 @@ public class NavigationDrawer extends Activity {
                     //go to your profile
                     changeToProfile();
                     break;
+                case 6:
+                    //log out from your profile
+                    logOut();
+                    break;
                 default:
                   //  changeToFeaturedFragment();
                     break;
@@ -222,7 +227,7 @@ public class NavigationDrawer extends Activity {
 
     //to go to the sell/Rent view
     public void changeToSellRentView(){
-        PlaceReviewCollectParse prc = new PlaceReviewCollectParse(getBaseContext());
+        PlaceReviewDao prc = new PlaceReviewCollectParse(getBaseContext());
         Fragment fragment = new SellRentList(prc);
         FragmentManager manager =  this.getFragmentManager();
         FragmentTransaction fragmentTransaction  = manager.beginTransaction();
@@ -249,6 +254,11 @@ public class NavigationDrawer extends Activity {
         fragmentTransaction.replace(R.id.content_frame,fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    public void logOut(){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
 

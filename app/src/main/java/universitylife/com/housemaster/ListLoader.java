@@ -53,10 +53,20 @@ public class ListLoader extends Fragment {
         //buttonRefreshed = (Button) featureView.findViewById(R.id.refresehButton);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         if(listPlaceReview == null) {
-            CardViewAdapter adapter = new CardViewAdapter(prc.getPlaceReviewList(), recyclerView);
+            ArrayList<PlaceReview> listPlace = prc.getPlaceReviewList();
+            /*if(listPlace.size() <= 0){
+                //so user know that there is nothing to display
+                listPlace.add(new PlaceReview("NONE TO DISPLAY","","",null,null,false,false,"",""));
+            }*/
+            CardViewAdapter adapter = new CardViewAdapter(listPlace, recyclerView);
             recyclerView.setAdapter(adapter);
             return featureView;
         }else{
+            /*
+            if(listPlaceReview.size() <= 0){
+                //so user know that there has nothing to display
+                listPlaceReview.add(new PlaceReview("NONE TO DISPLAY","","",null,null,false,false,"",""));
+            }*/
             CardViewAdapter adapter = new CardViewAdapter(listPlaceReview, recyclerView);
             recyclerView.setAdapter(adapter);
             return featureView;

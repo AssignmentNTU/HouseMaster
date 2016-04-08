@@ -141,7 +141,8 @@ public class OfferForm extends Fragment {
                         Log.e("userName: ",getUser.getuserName());
                         if(getUser.getuserName().equals(currentUser)){
                             //then we update their placeReview List
-                            getUser.addPlaceReview(listPlaceReview);
+                            PlaceReviewDao place = new PlaceReviewCollectParse(context);
+                            place.addToParse(getUser,listPlaceReview);
                             Log.e("sizeList: ",getUser.getPlaceReviewList().size()+"");
                             getUser.saveInBackground();
                             Toast.makeText(context,"Successfully uploaded",Toast.LENGTH_LONG).show();
