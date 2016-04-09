@@ -26,10 +26,9 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchForm extends Fragment {
+public class SearchForm extends Fragment implements  SearchInterface{
 
     private Activity activity;
-    private PlaceReviewCollectParse prc;
     private ArrayList<PlaceReview> listPlaceReview = new ArrayList<PlaceReview>();
 
 
@@ -49,8 +48,8 @@ public class SearchForm extends Fragment {
 
     public SearchForm(Activity activity) {
         this.activity = activity;
-        prc = new PlaceReviewCollectParse(activity);
-        prc.getPlaceReviewList(listPlaceReview);
+        PlaceReviewDao place = new PlaceReviewCollectParse(activity);
+        place.getPlaceReviewList(listPlaceReview);
     }
 
 
@@ -202,6 +201,12 @@ public class SearchForm extends Fragment {
         //return the list of filtered placeReview
         return listPlaceReview;
 
+    }
+
+    @Override
+    public ArrayList<PlaceReview> doSearching(String contentSearch) {
+        //is not used in here
+        return null;
     }
 
 }

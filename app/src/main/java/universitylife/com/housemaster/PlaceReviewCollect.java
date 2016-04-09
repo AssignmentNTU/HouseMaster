@@ -51,7 +51,7 @@ import java.util.concurrent.TimeUnit;
  * Created by LENOVO on 21/03/2016.
  */
 
- public class PlaceReviewCollect extends AsyncTask<String, String, JSONObject> implements LocationListener{
+ public class PlaceReviewCollect extends AsyncTask<String, String, JSONObject> implements LocationListener,PlaceReviewDao{
     //for GoogleMap API purpose
     private GoogleMap mGoogleMap;
     private double mLatitude;
@@ -177,4 +177,16 @@ import java.util.concurrent.TimeUnit;
     public ArrayList<PlaceReview> getPlaceReviewList(){
         return placeReviewsList;
     }
+
+    @Override
+    public void getPlaceReviewList(ArrayList<PlaceReview> listPlaceReview) {
+        //not implement anything here
+    }
+
+    @Override
+    public void addToParse(UserData user,ArrayList<PlaceReview> list) {
+
+    }
+
+
 }
