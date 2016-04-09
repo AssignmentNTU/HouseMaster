@@ -1,4 +1,4 @@
-package universitylife.com.housemaster;
+package layout;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,15 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import universitylife.com.housemaster.R;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link OfferForm.OnFragmentInteractionListener} interface
+ * {@link Place_Details.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link OfferForm#newInstance} factory method to
+ * Use the {@link Place_Details#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OfferForm extends Fragment {
+public class Place_Details extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +30,7 @@ public class OfferForm extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public OfferForm() {
+    public Place_Details() {
         // Required empty public constructor
     }
 
@@ -38,11 +40,11 @@ public class OfferForm extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment OfferForm.
+     * @return A new instance of fragment Place_Details.
      */
     // TODO: Rename and change types and number of parameters
-    public static OfferForm newInstance(String param1, String param2) {
-        OfferForm fragment = new OfferForm();
+    public static Place_Details newInstance(String param1, String param2) {
+        Place_Details fragment = new Place_Details();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,7 +65,7 @@ public class OfferForm extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_offer_form, container, false);
+        return inflater.inflate(R.layout.fragment_place__details, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

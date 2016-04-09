@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link OfferForm.OnFragmentInteractionListener} interface
+ * {@link FullScreenMap.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link OfferForm#newInstance} factory method to
+ * Use the {@link FullScreenMap#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OfferForm extends Fragment {
+public class FullScreenMap extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +28,7 @@ public class OfferForm extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public OfferForm() {
+    public FullScreenMap() {
         // Required empty public constructor
     }
 
@@ -38,11 +38,11 @@ public class OfferForm extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment OfferForm.
+     * @return A new instance of fragment FullScreenMap.
      */
     // TODO: Rename and change types and number of parameters
-    public static OfferForm newInstance(String param1, String param2) {
-        OfferForm fragment = new OfferForm();
+    public static FullScreenMap newInstance(String param1, String param2) {
+        FullScreenMap fragment = new FullScreenMap();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,7 +63,7 @@ public class OfferForm extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_offer_form, container, false);
+        return inflater.inflate(R.layout.fragment_full_screen_map, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

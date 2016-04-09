@@ -6,7 +6,7 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_sign_in">SignIn</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_sign_up">SignUp</string>
     <string name="title_activity_search_form">SearchForm</string>
@@ -37,6 +37,8 @@
     <string name="title_activity_map">Map</string>
 
 
+<<<<<<< HEAD
+=======
     <!--Other string resources also defined in this file… -->
     <string name="amenity1">Pool</string>
     <string name="amenity2">Gym</string>
@@ -44,4 +46,5 @@
     <string name="amenity4">Vacation</string>
 
 
+>>>>>>> 87f9b9e3e4984681c77ecf8863dd72392d8ea230
 </resources>
