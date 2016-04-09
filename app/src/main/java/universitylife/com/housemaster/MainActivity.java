@@ -1,27 +1,29 @@
 package universitylife.com.housemaster;
 
+import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
     //all the attribute here
     //for Button
-    private ImageButton buttonSignIn;
-    private ImageButton buttonRegister;
+    private Button buttonSignIn;
+    private Button buttonRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //declare all here
-        buttonSignIn = (ImageButton) findViewById(R.id.signInButton);
-        buttonRegister = (ImageButton) findViewById(R.id.registerButton);
+        buttonSignIn = (Button) findViewById(R.id.signInButton);
+        buttonRegister = (Button) findViewById(R.id.registerButton);
 
         //when button signIn is clicked
         buttonSignIn.setOnClickListener(new View.OnClickListener() {

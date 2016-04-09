@@ -5,6 +5,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -15,9 +16,12 @@
             <EditText
                 android:id="@+id/search_location"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_weight="5"
                 android:hint="Location/Address"
+                android:textColor="#212121"
+                android:textColorHint="#727272"
                 android:inputType="text" />
 
         </LinearLayout>
@@ -28,7 +32,8 @@
             android:text="Amenities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="16sp"
+            android:textColor="#212121"
             android:layout_marginTop="15dp"/>
 
         <LinearLayout
@@ -37,29 +42,32 @@
             android:layout_width="match_parent">
             <EditText
                 android:id="@+id/amenities_text"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_width="0dp"
+                android:textSize="18sp"
                 android:layout_weight="3"
                 android:hint="Name"
+                android:textColor="#212121"
+                android:textColorHint="#727272"
                 android:inputType="text"/>
             <Spinner
                 android:id="@+id/list_amenities"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#212121"
                 android:gravity="center_vertical"
                 />
         </LinearLayout>
-
-
-
 
         <TextView
             android:id="@+id/price_range"
             android:text="Price Range"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="16sp"
+            android:textColor="#212121"
             android:layout_marginTop="10dp"/>
 
         <LinearLayout
@@ -71,14 +79,18 @@
                 android:text="S$"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="20sp"
+                android:textColor="#212121"
                 android:gravity="center_vertical"/>
             <EditText
                 android:id="@+id/lowest_price"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:hint="Lowest"
+                android:textColor="#212121"
+                android:textColorHint="#727272"
                 android:inputType="number"/>
 
 
@@ -86,15 +98,19 @@
                 android:id="@+id/price_high"
                 android:text="to S$"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:textSize="20dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#212121"
                 android:gravity="center_vertical"/>
             <EditText
                 android:id="@+id/highest_price"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_weight="1"
                 android:hint="Highest"
+                android:textColor="#212121"
+                android:textColorHint="#727272"
                 android:inputType="number"/>
         </LinearLayout>
 
@@ -104,22 +120,31 @@
             android:layout_width="match_parent">
             <CheckBox
                 android:id="@+id/find_rent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#212121"
                 android:text="Rent"/>
             <CheckBox
                 android:id="@+id/find_sale"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#212121"
                 android:text="Sell"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/sell_search_button"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Search"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:background="#A7FFEB"
+            android:textColor="#212121"
+            android:elevation="10dp" />
 
     </LinearLayout>
 

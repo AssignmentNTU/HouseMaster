@@ -22,14 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="House Master"
+            android:text="HouseMaster"
             android:textSize="30dp"
             android:layout_marginTop="20dp"
             android:id="@+id/HouseMasterLogo"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
-            android:textColor="#ffffff"
+            android:textColor="#212121"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </RelativeLayout>

@@ -13,24 +13,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Register"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textColor="#FFF"
             android:layout_gravity="center_horizontal"
-
+            android:paddingTop="30dp"
+            android:paddingBottom="50dp"
             android:id="@+id/signInLogo" />
-
         <EditText
-            android:paddingTop="100dp"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/userNameText"
             android:layout_gravity="center_horizontal"
-            android:hint="UserName"
-            android:textColor="#FFF"
-            android:textColorHint="#FFF"
-            android:backgroundTint="#ffffff" />
-
+            android:hint="Username"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textColorHint="#E0E0E0"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,56 +36,71 @@
             android:id="@+id/emailText"
             android:layout_gravity="center_horizontal"
             android:hint="Email"
-            android:textColor="#FFF"
-            android:textColorHint="#FFF"
-            android:backgroundTint="#ffffff" />
-
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textColorHint="#E0E0E0" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:id="@+id/passwordText"
             android:inputType="textPassword"
-            android:textColor="#FFF"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             android:layout_gravity="center_horizontal"
-            android:hint="password (min. 6 character)"
-            android:textColorHint="#FFF"
-            android:backgroundTint="#ffffff" />
+            android:hint="Password (min. 6 character)"
+            android:textColorHint="#E0E0E0" />
 
-
-
-        <Button
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="30dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="SignUp"
-            android:id="@+id/buttonSignUp" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="SignUp with facebook"
-            android:textColor="#FFF"
-            android:background="#3b5998"
-            android:id="@+id/buttonSignUpFacebook" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="Sign Up"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:background="#A7FFEB"
+                android:elevation="5dp"
+                android:stateListAnimator="@anim/button_elevation"
+                android:id="@+id/buttonSignUp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="Sign Up with Facebook"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:background="#3b5998"
+                android:elevation="5dp"
+                android:stateListAnimator="@anim/button_elevation"
+                android:id="@+id/buttonSignUpFacebook" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text="Sign Up with Google+"
+                android:background="#d34836"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:elevation="5dp"
+                android:stateListAnimator="@anim/button_elevation"
+                android:id="@+id/buttonSignUpGoogle" />
 
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="SignUp with Google+"
-            android:background="#d34836"
-            android:textColor="#FFF"
-            android:id="@+id/buttonSignUpGoogle" />
-
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

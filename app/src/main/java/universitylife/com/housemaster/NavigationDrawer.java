@@ -1,19 +1,29 @@
 package universitylife.com.housemaster;
 
+import android.animation.AnimatorInflater;
+import android.animation.StateListAnimator;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -62,12 +72,10 @@ public class NavigationDrawer extends Activity {
         // App Icon
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
-
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,         /* DrawerLayout object */
-                R.drawable.ic_drawer,  /* nav drawer icon to replace 'Up' caret */
+                R.drawable.ic_menu_black,  /* nav drawer icon to replace 'Up' caret */
                 R.string.navigation_drawer_open,  /* "open drawer" description */
                 R.string.navigation_drawer_close  /* "close drawer" description */
         );
@@ -75,7 +83,7 @@ public class NavigationDrawer extends Activity {
         // Set actionBarDrawerToggle as the DrawerListener
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(244,67,54)));
+        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(244, 67, 54)));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
 
         //load the list of hdb first
@@ -83,7 +91,7 @@ public class NavigationDrawer extends Activity {
         prc.execute();
         final ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
-        //need to crehate thread so it will wait for the previous session to be finished
+        //need to create thread so it will wait for the previous session to be finished
         //normal 6s
         exec.schedule(new Runnable(){
             @Override

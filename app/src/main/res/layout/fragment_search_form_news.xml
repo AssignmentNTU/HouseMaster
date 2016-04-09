@@ -16,6 +16,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/newsSearchText"
             android:hint="News Search"
+            android:textColorHint="#727272"
+            android:textColor="#212121"
             android:layout_gravity="center" />
 
         <Button
@@ -24,9 +26,11 @@
             android:layout_gravity="center_horizontal|bottom"
             android:id="@+id/buttonSearchNews"
             android:layout_marginTop="30dp"
-            android:text="SEARCH"
-
-            />
+            android:background="#A7FFEB"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:elevation="10dp"
+            android:text="Search" />
     </LinearLayout>
 
 </FrameLayout>

@@ -7,7 +7,10 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,17 +20,25 @@
             <EditText
                 android:id="@+id/offer_location"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:hint="Location/Address"
+                android:textColorHint="#727272"
+                android:textSize="18sp"
+                android:textColor="#212121"
                 android:inputType="text"/>
 
             <Button
                 android:id="@+id/offer_GPS_button"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="GPS"/>
+                android:text="GPS"
+                android:background="#A7FFEB"
+                android:textColor="#212121"
+                android:elevation="5dp"
+                android:stateListAnimator="@anim/button_elevation"
+                android:textSize="16sp" />
         </LinearLayout>
 
 
@@ -40,27 +51,31 @@
                 android:id="@+id/text_price"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:gravity="center_vertical"
+                android:textColor="#212121"
                 android:text="S$"/>
             <EditText
                 android:id="@+id/offer_price"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Price"
+                android:textColorHint="#727272"
+                android:textSize="18sp"
+                android:textColor="#212121"
                 android:inputType="number"/>
             <CheckBox
                 android:id="@+id/offer_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="16sp"
                 android:text="Rent"/>
             <CheckBox
                 android:id="@+id/offer_sell"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="16sp"
                 android:text="Sell"/>
         </LinearLayout>
 
@@ -69,7 +84,8 @@
             android:text="Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="16sp"
+            android:textColor="#212121"
             android:layout_marginTop="10dp"/>
 
         <EditText
@@ -80,6 +96,9 @@
             android:lines="4"
             android:maxLines="10"
             android:gravity="top|left"
+            android:textColorHint="#727272"
+            android:textSize="18sp"
+            android:textColor="#212121"
             android:scrollbars="vertical"/>
 
         <EditText
@@ -89,6 +108,9 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:id="@+id/phone_number"
+            android:textColorHint="#727272"
+            android:textSize="18sp"
+            android:textColor="#212121"
             android:hint="Phone Number"
             />
 
@@ -97,7 +119,8 @@
             android:text="Upload Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:textSize="16sp"
+            android:textColor="#212121"
             android:layout_marginTop="10dp"/>
 
         <LinearLayout
@@ -107,33 +130,46 @@
             <EditText
                 android:id="@+id/image"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="File location"
+                android:textColorHint="#727272"
+                android:textSize="18sp"
+                android:textColor="#212121"
                 android:inputType="text"/>
             <Button
                 android:id="@+id/image_takephoto_button"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Take Photo"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Take Photo"
+                android:background="#A7FFEB"
+                android:textColor="#212121"
+                android:elevation="5dp"
+                android:stateListAnimator="@anim/button_elevation"
+                android:textSize="16sp"/>
         </LinearLayout>
-
-
-
-
-        <Button
-            android:id="@+id/offer_post_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="Post"
-            android:layout_gravity="center_horizontal"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:id="@+id/image_result"
-            />
+            android:id="@+id/image_result" />
+
+        <Button
+            android:id="@+id/offer_post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="#A7FFEB"
+            android:textColor="#212121"
+            android:elevation="5dp"
+            android:stateListAnimator="@anim/button_elevation"
+            android:textSize="16sp"/>
+
+
 
     </LinearLayout>
 
