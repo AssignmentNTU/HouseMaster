@@ -26,8 +26,8 @@
             android:layout_gravity="center_horizontal|bottom"
             android:id="@+id/buttonSearchNews"
             android:layout_marginTop="30dp"
-            android:background="#A7FFEB"
-            android:textColor="#212121"
+            android:background="#F44336"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:elevation="10dp"
             android:text="Search" />

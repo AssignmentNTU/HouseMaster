@@ -142,8 +142,8 @@
             android:text="Search"
             android:textSize="16sp"
             android:layout_gravity="center_horizontal"
-            android:background="#A7FFEB"
-            android:textColor="#212121"
+            android:background="#F44336"
+            android:textColor="#FFFFFF"
             android:elevation="10dp" />
 
     </LinearLayout>

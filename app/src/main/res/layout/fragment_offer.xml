@@ -10,7 +10,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_height="match_parent"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,8 +35,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="GPS"
-                android:background="#A7FFEB"
-                android:textColor="#212121"
+                android:background="#F44336"
+                android:textColor="#FFFFFF"
                 android:elevation="5dp"
                 android:stateListAnimator="@anim/button_elevation"
                 android:textSize="16sp" />
@@ -143,8 +144,8 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:text="Take Photo"
-                android:background="#A7FFEB"
-                android:textColor="#212121"
+                android:background="#F44336"
+                android:textColor="#FFFFFF"
                 android:elevation="5dp"
                 android:stateListAnimator="@anim/button_elevation"
                 android:textSize="16sp"/>
@@ -163,8 +164,8 @@
             android:text="Post"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:background="#A7FFEB"
-            android:textColor="#212121"
+            android:background="#F44336"
+            android:textColor="#FFFFFF"
             android:elevation="5dp"
             android:stateListAnimator="@anim/button_elevation"
             android:textSize="16sp"/>

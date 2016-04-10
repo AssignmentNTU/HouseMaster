@@ -53,6 +53,7 @@
                 android:textSize="20dp"
                 android:elevation="6dp"
                 android:background="#FFEBEE"
+                android:textColor="#000000"
                 android:id="@+id/registerButton" />
 
             <Button
@@ -64,6 +65,7 @@
                 android:textSize="20dp"
                 android:elevation="6dp"
                 android:background="#FFEBEE"
+                android:textColor="#000000"
                 android:id="@+id/signInButton" />
 
         </LinearLayout>

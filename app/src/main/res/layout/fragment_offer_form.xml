@@ -8,7 +8,9 @@
         android:orientation="vertical"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -27,8 +29,10 @@
             <Button
                 android:id="@+id/offer_GPS_button"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
+                android:background="#F44336"
+                android:textColor="#FFFFFF"
                 android:text="GPS"/>
         </LinearLayout>
 
@@ -125,15 +129,19 @@
             <Button
                 android:id="@+id/image_search_button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
+                android:background="#F44336"
+                android:textColor="#FFFFFF"
                 android:text="Search"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/offer_post_button"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:text="Post"
+            android:background="#F44336"
+            android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

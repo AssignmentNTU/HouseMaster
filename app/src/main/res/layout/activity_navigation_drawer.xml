@@ -9,7 +9,7 @@
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFCDD2"
+        android:background="#FFFFFF"
         />
 
     <!-- The navigation drawer -->
@@ -20,7 +20,7 @@
         android:choiceMode="singleChoice"
         android:divider="#B6B6B6"
         android:dividerHeight="1dp"
-        android:background="#FFCDD2"/>
+        android:background="#FFFFFF"/>
 
 
 </android.support.v4.widget.DrawerLayout>
