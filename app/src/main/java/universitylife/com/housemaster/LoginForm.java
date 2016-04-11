@@ -38,6 +38,8 @@ public class LoginForm extends Activity {
         //declare Button
         loginButton = (Button) findViewById(R.id.buttonLogin);
 
+        //hide action bar
+        getActionBar().hide();
 
 
         //login

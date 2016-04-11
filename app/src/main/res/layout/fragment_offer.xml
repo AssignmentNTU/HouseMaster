@@ -29,17 +29,7 @@
                 android:textColor="#212121"
                 android:inputType="text"/>
 
-            <Button
-                android:id="@+id/offer_GPS_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="GPS"
-                android:background="#F44336"
-                android:textColor="#FFFFFF"
-                android:elevation="5dp"
-                android:stateListAnimator="@anim/button_elevation"
-                android:textSize="16sp" />
+
         </LinearLayout>
 
 
@@ -153,13 +143,13 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:id="@+id/image_result" />
 
         <Button
             android:id="@+id/offer_post_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Post"
             android:layout_gravity="center_horizontal"

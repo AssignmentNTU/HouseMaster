@@ -20,17 +20,18 @@
             android:textColor="#212121"
             android:layout_gravity="center" />
 
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:id="@+id/buttonSearchNews"
-            android:layout_marginTop="30dp"
-            android:background="#F44336"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:elevation="10dp"
-            android:text="Search" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/buttonSearchNews"
+        android:layout_marginTop="30dp"
+        android:background="#F44336"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:elevation="10dp"
+        android:text="Search" />
 
 </FrameLayout>

@@ -40,6 +40,9 @@ public class SignUpForm extends Activity{
         emailText    = (EditText) findViewById(R.id.emailText);
 
 
+        //hide action bar
+        getActionBar().hide();
+
         //declare Button
         signUpButton = (Button) findViewById(R.id.buttonSignUp);
 
