@@ -1,10 +1,7 @@
 package universitylife.com.housemaster;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,21 +15,36 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by LENOVO on 19/03/2016.
  */
-public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder>
+public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHolder> implements View.OnClickListener
 {
     private RecyclerView recyclerView = null;
     private ArrayList<PlaceReview> placeReviewList;
+    private OnPlaceClick onPlaceClick;
 
-    public CardViewAdapter(ArrayList<PlaceReview> placeReviewList,RecyclerView recyclerView){
+    interface OnPlaceClick {
+        void onClick(PlaceReview placeReview);
+    }
+
+    /**
+     * A place review card was clicked.
+     * @param view
+     */
+    @Override
+    public void onClick(View view) {
+        int itemPosition = recyclerView.getChildAdapterPosition(view);
+        this.onPlaceClick.onClick(placeReviewList.get(itemPosition));
+        //then from here we can go to particular activity to check the item that we clic k
+        Log.e("Clicked and Position is",String.valueOf(itemPosition));
+    }
+
+    public CardViewAdapter(ArrayList<PlaceReview> placeReviewList, RecyclerView recyclerView, OnPlaceClick onPlaceClick){
         this.placeReviewList = placeReviewList;
         this.recyclerView = recyclerView;
+        this.onPlaceClick = onPlaceClick;
     }
 
 
@@ -45,7 +57,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         // create ViewHolder
         //the idea of cardholder is firstly it will create a veiw of each list
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
-        itemLayoutView.setOnClickListener(new MyOnClickListener());
+        itemLayoutView.setOnClickListener(this);
 
         return viewHolder;
 
@@ -135,17 +147,4 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         }
 
     }
-
-
-    class MyOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            int itemPosition = recyclerView.getChildPosition(v);
-            View currentView = recyclerView.getChildAt(itemPosition);
-            //then from here we can go to particular activity to check the item that we clic k
-            Log.e("Clicked and Position is",String.valueOf(itemPosition));
-        }
-    }
-
-
 }

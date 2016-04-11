@@ -44,5 +44,8 @@
     <string name="amenity3">Shooping Mall</string>
     <string name="amenity4">Vacation</string>
 
+    <string name="amenities_label">Amenities</string>
+    <string name="description_label">Description</string>
+    <string name="photo_image_placeholder">Photo</string>
 
 </resources>
