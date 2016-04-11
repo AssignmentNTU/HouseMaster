@@ -18,18 +18,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
-            <EditText
-                android:id="@+id/offer_location"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:hint="Location/Address"
-                android:textColorHint="#727272"
-                android:textSize="18sp"
-                android:textColor="#212121"
-                android:inputType="text"/>
 
 
+
+            <fragment
+                    android:id="@+id/location_autocomplete"
+                    android:layout_height="wrap_content"
+                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                    android:layout_weight="1" android:layout_width="0dp"/>
+
+            <Button
+                android:id="@+id/offer_GPS_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="GPS"/>
         </LinearLayout>
 
 
@@ -79,6 +81,7 @@
             android:textColor="#212121"
             android:layout_marginTop="10dp"/>
 
+
         <EditText
             android:id="@+id/description"
             android:inputType="textMultiLine"
@@ -91,6 +94,9 @@
             android:textSize="18sp"
             android:textColor="#212121"
             android:scrollbars="vertical"/>
+            android:scrollbars="vertical"
+            android:hint="Description"/>
+
 
         <EditText
             android:layout_width="match_parent"
@@ -110,8 +116,8 @@
             android:text="Upload Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:textColor="#212121"
+            android:textSize="18sp"
             android:layout_marginTop="10dp"/>
 
         <LinearLayout
@@ -128,6 +134,7 @@
                 android:textSize="18sp"
                 android:textColor="#212121"
                 android:inputType="text"/>
+
             <Button
                 android:id="@+id/image_takephoto_button"
                 android:layout_width="0dp"
