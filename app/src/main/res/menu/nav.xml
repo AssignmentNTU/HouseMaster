@@ -2,8 +2,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="universitylife.com.housemaster.nav">
-    <item android:id="@+id/action_example" android:title="@string/action_example"
-        app:showAsAction="withText|ifRoom" />
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/featured"
+              android:checked="false"
+              android:icon="@drawable/star"
+              android:title="Featured"/>
+        <item android:id="@+id/searchFeatured"
+              android:checked="false"
+              android:icon="@drawable/place"
+              android:title="Search Featured"/>
+
+        <item android:id="@+id/sellRent"
+              android:checked="false"
+              android:icon="@drawable/offer"
+              android:title="Sell/Rent"/>
+
+        <item android:id="@+id/searchSellRent"
+              android:checked="false"
+              android:icon="@drawable/place"
+              android:title="Search Sell/Rent"/>
+
+        <item android:id="@+id/offer"
+              android:checked="false"
+              android:icon="@drawable/offering"
+              android:title="Offer Place"/>
+
+        <item android:id="@+id/profile"
+              android:checked="false"
+              android:icon="@drawable/profile"
+              android:title="Profile"/>
+    </group>
 </menu>

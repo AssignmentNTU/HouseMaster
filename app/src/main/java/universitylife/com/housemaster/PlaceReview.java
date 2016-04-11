@@ -36,6 +36,7 @@ public class PlaceReview extends ParseObject {
     public PlaceReview(String hdbName, LatLng position, String description, String price, ParseFile imageFile, ArrayList<String> listAmenities,
                        boolean rent,boolean sale,String phoneNumber,String userName){
         put("hdbName",hdbName);
+        put("location", hdbName);
         put("amenities",listAmenities);
         put("description",description);
         put("price",price);

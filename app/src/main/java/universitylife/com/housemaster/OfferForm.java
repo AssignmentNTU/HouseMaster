@@ -22,10 +22,7 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.model.LatLng;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseQuery;
+import com.parse.*;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -74,7 +71,7 @@ public class OfferForm extends Fragment implements PlaceSelectionListener, View.
 
         //declaration all attribute
         View currView = inflater.inflate(R.layout.fragment_offer, container, false);
-        location_autocomplete = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.location_autocomplete);
+        location_autocomplete = (PlaceAutocompleteFragment) getChildFragmentManager().findFragmentById(R.id.location_autocomplete);
         price_text = (EditText) currView.findViewById(R.id.offer_price);
         description_text = (EditText) currView.findViewById(R.id.description);
         offerButton = (Button) currView.findViewById(R.id.offer_post_button);
@@ -92,17 +89,7 @@ public class OfferForm extends Fragment implements PlaceSelectionListener, View.
             }
         });
 
-        location_autocomplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-
-            }
-
-            @Override
-            public void onError(Status status) {
-
-            }
-        });
+        location_autocomplete.setOnPlaceSelectedListener(this);
 
         offerButton.setOnClickListener(this);
 
@@ -213,6 +200,7 @@ public class OfferForm extends Fragment implements PlaceSelectionListener, View.
         //data added
         ArrayList<String> listPlace = new ArrayList<String>();
         if(photo != null) {
+            ParseObject.registerSubclass(PlaceReview.class);
             final PlaceReview placeAdded = new PlaceReview(hdbname, position, descriptiontext,priceText, photo, listPlace,rentCheck,sellCheck,phonetext,currentUser);
             ArrayList<PlaceReview> listPlaceReview = getExistedPlaceReview();
             if(listPlaceReview == null){

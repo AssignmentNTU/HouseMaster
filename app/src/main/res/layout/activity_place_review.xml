@@ -28,22 +28,26 @@
                         android:text="{md-contact-phone} "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/accent"
                         android:textAppearance="?android:attr/textAppearanceLarge"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:id="@+id/phone" android:layout_weight="1"/>
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/phone" android:layout_weight="1"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:onClick="call"/>
                 <com.joanzapata.iconify.widget.IconTextView
                         android:text="{md-attach-money} "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/accent"
                         android:textAppearance="?android:attr/textAppearanceLarge" android:textAlignment="viewEnd"
                         android:singleLine="false"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:id="@+id/price"/>
             </LinearLayout>
     
@@ -56,11 +60,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge" android:textAlignment="viewEnd"
+                        android:textColor="@color/accent"
                         android:singleLine="false"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:id="@+id/address" />
             </LinearLayout>
             <LinearLayout android:layout_width="fill_parent" android:layout_height="128dp" android:id="@+id/mapSmall">
@@ -83,25 +88,27 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/accent"
                     android:text="@string/description_label"
                     android:id="@+id/textView5" />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/description" />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/accent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/amenities_label"
                     android:id="@+id/textView7"
                     android:layout_marginTop="8dp" />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/amenities"/>
         </LinearLayout>
     </ScrollView>

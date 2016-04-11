@@ -2,7 +2,11 @@ package universitylife.com.housemaster;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.*;
@@ -16,7 +20,6 @@ import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.MaterialModule;
 
 public class PlaceReviewActivity extends AppCompatActivity {
-    // ugly hack, but Android API SUCKS
     public static PlaceReview placeReview = null;
 
     private MapView mapView;
@@ -56,7 +59,7 @@ public class PlaceReviewActivity extends AppCompatActivity {
         mapView.onCreate(savedInstanceState);
         fullscreenLayer.setVisibility(View.VISIBLE);
 
-        getActionBar().setTitle(placeReview.getHdbName());
+        getSupportActionBar().setTitle(placeReview.getHdbName());
         phoneText.setText(placeReview.getPhoneNumber());
         priceText.setText(placeReview.getPrice());
         descriptionText.setText(placeReview.getHdbDescription());
@@ -105,35 +108,13 @@ public class PlaceReviewActivity extends AppCompatActivity {
         fullscreenLayer.setVisibility(View.GONE);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_place_review, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public boolean isMapFullscreen() {
         return mapSmall.getVisibility() != View.VISIBLE;
     }
 
     public void resizeMap(View view) {
         if (isMapFullscreen()) {
-            fullscreenLayer.animate().setDuration(getResources().getInteger(R.integer.shortAnimDuration)).alpha(0.f).setListener(new AnimatorListenerAdapter() {
+            fullscreenLayer.animate().setDuration(getResources().getInteger(R.integer.shortAnim)).alpha(0.f).setListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animator) {
                     resizeMapBtn.setText("{md-fullscreen}");
@@ -149,7 +130,7 @@ public class PlaceReviewActivity extends AppCompatActivity {
             mapSmall.removeView(mapWithFullscreen);
             fullscreenLayer.addView(mapWithFullscreen);
             fullscreenLayer.setVisibility(View.VISIBLE);
-            fullscreenLayer.animate().setListener(null).setDuration(getResources().getInteger(R.integer.shortAnimDuration)).alpha(1.f);
+            fullscreenLayer.animate().setListener(null).setDuration(getResources().getInteger(R.integer.shortAnim)).alpha(1.f);
         }
     }
 
@@ -161,5 +142,17 @@ public class PlaceReviewActivity extends AppCompatActivity {
             placeReview = null;
             super.onBackPressed();
         }
+    }
+
+    public void call(View view) {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permission denied.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String number = ((TextView) view).getText().toString();
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + number));
+        startActivity(callIntent);
     }
 }

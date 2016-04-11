@@ -65,9 +65,9 @@ public class AmenitiesGenerator {
 
     public void getAmenitiesListShort(String hdbName,String location,String priceHDB,int imageIndex){
         // Getting Google Play availability status
-        int status = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context);
+        boolean status = Geocoder.isPresent();
 
-        if(status == ConnectionResult.SUCCESS){
+        if(status){
             //when the phone is supported by google maps
 
             //we need to get the location longitude and latitude from GeoCoder
@@ -118,9 +118,9 @@ public class AmenitiesGenerator {
 
     public void getAmenitiesListLong(String hdbName, String description,String price,boolean rent,boolean sale,String phoneNumber,ParseFile imageFile){
         // Getting Google Play availability status
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
+        boolean status = Geocoder.isPresent();
 
-        if(status == ConnectionResult.SUCCESS){
+        if(status){
             //when the phone is supported by google maps
 
             //we need to get the location longitude and latitude from GeoCoder

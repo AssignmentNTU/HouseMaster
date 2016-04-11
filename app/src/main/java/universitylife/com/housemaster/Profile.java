@@ -90,7 +90,7 @@ public class Profile extends Fragment {
         //so basically in my parse cloud accoutn there has already had a relational database of PlaceReview
         ParseQuery<PlaceReview> query = ParseQuery.getQuery("PlaceReview");
         //to load the amenities
-
+        ParseObject.registerSubclass(PlaceReview.class);
         //ParseObject User
         final ArrayList<PlaceReview>[] list = new ArrayList[1];
         query.findInBackground(new FindCallback<PlaceReview>() {
