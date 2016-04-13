@@ -110,7 +110,9 @@ public class OfferForm extends Fragment implements PlaceSelectionListener, View.
                         Log.e("userName: ",getUser.getuserName());
                         if(getUser.getuserName().equals(currentUser)){
                             //then we update their placeReview List
-                            getUser.addPlaceReview(listPlaceReview);
+                            //getUser.addPlaceReview(listPlaceReview);
+                            PlaceReviewDao insertDatabase = new PlaceReviewCollectParse(context);
+                            insertDatabase.addToParse(getUser,listPlaceReview);
                             Log.e("sizeList: ",getUser.getPlaceReviewList().size()+"");
                             getUser.saveInBackground();
                             Toast.makeText(context,"Successfully uploaded",Toast.LENGTH_LONG).show();
