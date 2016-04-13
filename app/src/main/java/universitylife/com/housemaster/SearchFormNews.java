@@ -57,11 +57,18 @@ public class SearchFormNews extends Fragment implements  SearchInterface{
             @Override
             public void onClick(View v) {
                 final String searchContent = textSearchNews.getText().toString();
-                Log.e("Click","true");
-                Log.e("Content",searchContent);
-                if(searchContent != null) startFragmentFeatured(doSearching(searchContent));
-                else Toast.makeText(getActivity(),"Search content is blank",Toast.LENGTH_LONG).show();
-            }
+                //search content need to be checked first that user just can search alphabet and . - &  ,
+                if(searchContent.matches("\\w+") || searchContent.contains(",") || searchContent.contains(".") ||searchContent.contains("&")
+                        || searchContent.contains("-") || searchContent.contains(" ")) {
+                    Log.e("Click", "true");
+                    Log.e("Content", searchContent);
+                    if (searchContent != null) startFragmentFeatured(doSearching(searchContent));
+                    else
+                        Toast.makeText(getActivity(), "Search content is blank", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getActivity(), "input allowed is alphabet or {.,&-}", Toast.LENGTH_LONG).show();
+                }
+                }
         });
 
         return currentView;

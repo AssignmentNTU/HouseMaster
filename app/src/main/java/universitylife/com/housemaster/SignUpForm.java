@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignUpForm extends Activity{
 
@@ -56,6 +57,10 @@ public class SignUpForm extends Activity{
                 username = usernameText.getText().toString();
                 password = passwordText.getText().toString();
                 email = emailText.getText().toString();
+                if(!validateUser()){
+                    //when the password is less than 6 then user cannot proceed
+                    return;
+                }
                 //general Login is clicked
                 Log.e("Click", "Loginisclicked");
                 account.verifySignUp(email,username,password);
@@ -67,6 +72,15 @@ public class SignUpForm extends Activity{
     private void goToSearchForm(){
         Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
+    }
+
+    public boolean validateUser(){
+        password = passwordText.getText().toString();
+        if(password.length() < 6){
+            Toast.makeText(this, "password length at lest 6 ", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
 

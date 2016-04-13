@@ -75,6 +75,8 @@ public class AccountManager {
         final MyProgressDialog dialog = new MyProgressDialog(context);
         dialog.showProgressDialogRetrieveData();
 
+
+
         //so basically i will retrieve all the object first
         ParseObject.registerSubclass(UserData.class);
         Parse.initialize(context, "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");

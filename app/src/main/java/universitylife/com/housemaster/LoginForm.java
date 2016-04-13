@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginForm extends Activity {
 
@@ -47,14 +48,26 @@ public class LoginForm extends Activity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = usernameText.getText().toString();
-                password = passwordText.getText().toString();
+                if(!validateUser()){
+                    return;
+                }
                 //general Login is clicked
                 accountManager.verifyLogin(username,password);
                 //after we sign in we will redirected to search form
                // goToSearchForm();
             }
         });
+    }
+
+    public boolean validateUser(){
+        username = usernameText.getText().toString();
+        password = passwordText.getText().toString();
+
+        if(password.length() < 6){
+            Toast.makeText(this,"password length at lest 6 ",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     public void goToSearchForm(){
