@@ -48,6 +48,8 @@ public class SellRentList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //get the view of fragment
+        final MyProgressDialog dialog = new MyProgressDialog(getActivity());
+        dialog.showProgressDialogRetrieveData();
         View currentView = inflater.inflate(R.layout.fragment_search_form_news, container, false);
         //declare all the attribute
         textSearchNews = (EditText) currentView.findViewById(R.id.newsSearchText);
@@ -58,6 +60,7 @@ public class SellRentList extends Fragment {
             @Override
             public void run(){
                 startFragmentFeatured(listPlaceReview);
+                dialog.dismissDialogRetrieveData();
             }
         }, 5, TimeUnit.SECONDS);
         return currentView;

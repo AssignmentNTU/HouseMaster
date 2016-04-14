@@ -129,9 +129,15 @@ public class AmenitiesGenerator {
             try {
                 //change jurong east as town
                 List<Address> list = geocoder.getFromLocationName(hdbName,1);
-                address = list.get(0);
-                mLatitude = address.getLatitude();
-                mLongitude = address.getLongitude();
+                if(list.size()  < 1){
+                    mLatitude = 110;
+                    mLongitude = 110;
+                }else{
+                    address = list.get(0);
+                    mLatitude = address.getLatitude();
+                    mLongitude = address.getLongitude();
+                }
+
 
             } catch (IOException e) {
                 Log.e("Test 2", "error here");
