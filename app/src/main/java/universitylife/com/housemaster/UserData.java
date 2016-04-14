@@ -1,5 +1,8 @@
 package universitylife.com.housemaster;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
@@ -64,6 +67,19 @@ public class UserData  extends ParseObject{
 
     public ArrayList<PlaceReview> getPlaceReviewList(){
         return (ArrayList<PlaceReview>) get("placeReviewList");
+    }
+
+    public static String getCurrentUser(Context context){
+        SharedPreferences shared = context.getSharedPreferences("UserPrefs",context.MODE_PRIVATE);
+        return shared.getString("UserName",null);
+    }
+
+    public static void addCurrentUser(Context context,String userName,String email){
+        SharedPreferences shared = context.getSharedPreferences("UserPrefs",context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = shared.edit();
+        edit.putString("UserName",userName);
+        edit.putString("Email",email);
+        edit.commit();
     }
 
 }

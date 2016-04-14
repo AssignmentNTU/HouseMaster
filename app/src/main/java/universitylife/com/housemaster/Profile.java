@@ -34,8 +34,6 @@ public class Profile extends Fragment {
     private Context context;
 
 
-    //so the purpose of this class is to load the profile of user
-    private SharedPreferences shared;
 
     //attribute
     private TextView textUserName;
@@ -50,9 +48,6 @@ public class Profile extends Fragment {
 
 
 
-
-
-
     public Profile() {
         // Required empty public constructor
 
@@ -61,9 +56,6 @@ public class Profile extends Fragment {
 
     public Profile(Context context){
         this.context = context;
-        shared = context.getSharedPreferences("UserPrefs", context.MODE_PRIVATE);
-        userName = shared.getString("UserName",null);
-        userEmail = shared.getString("Email",null);
     }
 
 
@@ -73,6 +65,9 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View currentView = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        //get CurrentUser who log in
+        userName = UserData.getCurrentUser(context);
 
         //declaration of all attribute
         textUserName = (TextView) currentView.findViewById(R.id.name_profile);

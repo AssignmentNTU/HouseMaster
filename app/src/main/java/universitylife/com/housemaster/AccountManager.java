@@ -32,7 +32,11 @@ public class AccountManager {
 
     public void verifySignUp(final String email,final String userName, final String password){
         ParseObject.registerSubclass(UserData.class);
-        Parse.initialize(context, "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
+        try {
+            Parse.initialize(context, "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
+        }catch(Exception e){
+            //do nothing
+        }
         //before save it we need to make sure that the username is unique
         ParseQuery<UserData> query = ParseQuery.getQuery("UserData");
         //query.whereEqualTo("username",userName);
@@ -79,7 +83,11 @@ public class AccountManager {
 
         //so basically i will retrieve all the object first
         ParseObject.registerSubclass(UserData.class);
-        Parse.initialize(context, "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
+        try {
+            Parse.initialize(context, "q1ATuG6Ju9jfk0JF9wAvcP3Qnc060gTFBbg8MoXz", "TMbRe5o5wajxErJ3akzQmnvaQlBxuzg4LGc2CWSd");
+        }catch(Exception e){
+            //do nothing
+        }
         ParseQuery<UserData> query = ParseQuery.getQuery("UserData");
         //query.whereEqualTo("username",userName);
         query.findInBackground(new FindCallback<UserData>() {

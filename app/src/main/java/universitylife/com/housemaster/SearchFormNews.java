@@ -95,11 +95,8 @@ public class SearchFormNews extends Fragment implements  SearchInterface{
             PlaceReview place = listPlaceReview.get(i);
             String hdbFilteredName = filterHDBName(place.getHdbName());
             String hdbFilterName1 = filterHDBName(searchContent.toLowerCase());
-            Log.e("placeHDBName1",hdbFilteredName);
-            Log.e("placeHDBName2",searchContent.toLowerCase());
             if(hdbFilterName1.equals(hdbFilteredName)){
                 filterPlaceReview.add(place);
-                Log.e("it is true","true");
             }
         }
         return filterPlaceReview;
@@ -120,6 +117,7 @@ public class SearchFormNews extends Fragment implements  SearchInterface{
         Log.e("HDBName",hdbFiltered);
         return hdbFiltered;
     }
+
     @Override
     public ArrayList<PlaceReview> doSearching(String hdbName, String amenitiyText, String lowestPrice, String highestPrice, boolean rent, boolean sell, ArrayList<PlaceReview> listPlaceReview) {
         //not used in here

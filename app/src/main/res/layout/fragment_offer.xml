@@ -4,167 +4,163 @@
     android:layout_height="match_parent"
     tools:context=".Offer">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:background="#FFFFFF">
+        android:id="@+id/scrollView" >
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-            <fragment
-                    android:id="@+id/location_autocomplete"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:background="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <fragment
+                        android:id="@+id/location_autocomplete"
+                        android:layout_height="wrap_content"
+                        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                        android:layout_weight="1" android:layout_width="0dp"/>
+
+                <Button
+                    android:id="@+id/offer_GPS_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="GPS"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:gravity="center_vertical"
+                    android:textColor="#212121"
+                    android:text="S$"/>
+                <EditText
+                    android:id="@+id/offer_price"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-                    android:layout_weight="1" android:layout_width="0dp"/>
-
-            <Button
-                android:id="@+id/offer_GPS_button"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="GPS"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+                    android:layout_weight="1"
+                    android:hint="Price"
+                    android:textColorHint="#727272"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:inputType="number"/>
+                <CheckBox
+                    android:id="@+id/offer_rent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Rent"/>
+                <CheckBox
+                    android:id="@+id/offer_sell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Sell"/>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/text_price"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:gravity="center_vertical"
-                android:textColor="#212121"
-                android:text="S$"/>
-            <EditText
-                android:id="@+id/offer_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Price"
-                android:textColorHint="#727272"
-                android:textSize="18sp"
-                android:textColor="#212121"
-                android:inputType="number"/>
-            <CheckBox
-                android:id="@+id/offer_rent"
+                android:id="@+id/text_description"
+                android:text="Description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="Rent"/>
-            <CheckBox
-                android:id="@+id/offer_sell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Sell"/>
-        </LinearLayout>
+                android:textColor="#212121"
+                android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/text_description"
-            android:text="Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#212121"
-            android:layout_marginTop="10dp"/>
-
-
-        <EditText
-            android:id="@+id/description"
-            android:inputType="textMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lines="4"
-            android:maxLines="10"
-            android:gravity="top|left"
-            android:textColorHint="#727272"
-            android:textSize="18sp"
-            android:textColor="#212121"
-            android:scrollbars="vertical"/>
-            android:scrollbars="vertical"
-            android:hint="Description"/>
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:id="@+id/phone_number"
-            android:textColorHint="#727272"
-            android:textSize="18sp"
-            android:textColor="#212121"
-            android:hint="Phone Number"
-            />
-
-        <TextView
-            android:id="@+id/upload_image"
-            android:text="Upload Image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#212121"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/image"
-                android:layout_width="0dp"
+                android:id="@+id/description"
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="File location"
+                android:lines="4"
+                android:maxLines="10"
+                android:gravity="top|left"
                 android:textColorHint="#727272"
                 android:textSize="18sp"
                 android:textColor="#212121"
-                android:inputType="text"/>
+                android:scrollbars="vertical"/>
+                android:scrollbars="vertical"
+                android:hint="Description"/>
 
-            <Button
-                android:id="@+id/image_takephoto_button"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="Take Photo"
-                android:background="#F44336"
-                android:textColor="#FFFFFF"
-                android:elevation="5dp"
-                android:stateListAnimator="@anim/button_elevation"
-                android:textSize="16sp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:id="@+id/phone_number"
+                android:textColorHint="#727272"
+                android:textSize="18sp"
+                android:textColor="#212121"
+                android:hint="Phone Number"
+                />
+
+            <TextView
+                android:id="@+id/upload_image"
+                android:text="Upload Image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#212121"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <Button
+                    android:id="@+id/image_takephoto_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="Take Photo"
+                    android:layout_marginTop="10dp"
+                    android:background="#F44336"
+                    android:textColor="#FFFFFF"
+                    android:elevation="5dp"
+                    android:stateListAnimator="@anim/button_elevation"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/image_result" />
+
+
         </LinearLayout>
+    </ScrollView>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/image_result" />
-
-        <Button
-            android:id="@+id/offer_post_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Post"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="#F44336"
-            android:textColor="#FFFFFF"
-            android:elevation="5dp"
-            android:stateListAnimator="@anim/button_elevation"
-            android:textSize="16sp"/>
-
-
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/offer_post_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="10dp"
+        android:background="#F44336"
+        android:textColor="#FFFFFF"
+        android:elevation="5dp"
+        android:stateListAnimator="@anim/button_elevation"
+        android:textSize="16sp"/>
 
 </FrameLayout>
